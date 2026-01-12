@@ -1,0 +1,343 @@
+/* =========================================================
+   LURIEN — style.css (header grande -> scroll -> piccolo)
+========================================================= */
+
+:root{
+  --bg: #050505;
+  --text: #ffffff;
+  --muted: rgba(255,255,255,0.75);
+  --glassTop: rgba(0,0,0,0.35);
+  --glassScroll: rgba(0,0,0,0.72);
+  --border: rgba(255,255,255,0.12);
+  --border2: rgba(255,255,255,0.18);
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x:hidden;
+}
+
+a{ color:inherit; }
+
+.container{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:-9999px;
+}
+.skip-link:focus{
+  left: 12px;
+  top: 12px;
+  z-index: 99999;
+  background:#000;
+  color:#fff;
+  padding:10px 12px;
+  border:1px solid var(--border2);
+  border-radius:10px;
+}
+
+.btn{
+  border:1px solid var(--border2);
+  background: rgba(255,255,255,0.06);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn:hover{ background: rgba(255,255,255,0.10); }
+.btn-ghost{ background: rgba(255,255,255,0.10); }
+
+/* =========================================================
+   HEADER — COME HAI CHIESTO
+   - all'inizio: logo grande + scritte un po' più in basso
+   - scroll: logo più piccolo + header compatto
+   - scritte: stessa dimensione, solo più "dentro" in alto
+========================================================= */
+
+.site-header{
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 9999;
+
+  /* trasparente in cima */
+  background: var(--glassTop);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  /* header alto quando sei su */
+  height: 128px;
+
+  transition: background .25s ease, height .25s ease, padding .25s ease;
+}
+
+.header-inner{
+  height: 100%;
+  display:flex;
+  align-items: flex-end;       /* ✅ scritte più in basso quando sei su */
+  justify-content: space-between;
+  gap: 18px;
+
+  /* ✅ questo abbassa tutto un po’ (soprattutto il menu) */
+  padding-bottom: 18px;
+}
+
+/* Brand / logo */
+.brand{
+  display:flex;
+  align-items:flex-end;
+  text-decoration:none;
+}
+
+.brand-logo{
+  height: 92px;               /* ✅ logo grande “come originale” */
+  width:auto;
+  transition: height .25s ease, transform .25s ease;
+  filter: drop-shadow(0 12px 26px rgba(0,0,0,0.55));
+}
+
+/* Menu */
+.main-nav{
+  display:flex;
+  gap: 22px;
+  align-items: flex-end;       /* ✅ in cima le scritte stanno più in basso */
+}
+
+.main-nav a{
+  text-decoration:none;
+  opacity:0.95;
+
+  /* ✅ dimensione scritte (NON cambia con lo scroll) */
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+
+  padding: 10px 12px;
+  border-radius: 14px;
+  transition: background .2s ease, opacity .2s ease, transform .2s ease;
+}
+
+.main-nav a:hover{
+  background: rgba(255,255,255,0.10);
+  opacity:1;
+  transform: translateY(-1px);
+}
+
+/* evidenzia voce attiva (app.js mette aria-current="page") */
+.main-nav a[aria-current="page"]{
+  background: rgba(255,255,255,0.12);
+  opacity:1;
+}
+
+/* Actions (lingua) */
+.header-actions{
+  display:flex;
+  align-items:flex-end; /* ✅ anche questo un po’ più basso in cima */
+}
+
+/* ✅ STATO SCROLL: header più compatto, logo più piccolo,
+      menu resta della stessa dimensione ma più “dentro” in alto */
+.site-header.is-scrolled{
+  background: var(--glassScroll);
+  height: 86px;
+}
+
+.site-header.is-scrolled .header-inner{
+  align-items: center;      /* ✅ torna “più su” ordinato */
+  padding-bottom: 0;        /* ✅ rientra nei margini in alto */
+}
+
+.site-header.is-scrolled .brand-logo{
+  height: 60px;             /* ✅ logo più piccolo quando scrolli */
+}
+
+/* menu: stessa misura, solo posizione più ordinata */
+.site-header.is-scrolled .main-nav{
+  align-items: center;
+}
+
+/* =========================================================
+   MAIN / APP (spazio sotto header fisso)
+========================================================= */
+
+.app{
+  padding-top: 128px; /* deve combaciare con l’altezza iniziale dell’header */
+}
+
+/* quando scrolli, l’header diventa più piccolo, ma questo va bene lo stesso */
+
+/* =========================================================
+   HERO / SEZIONI (app.js usa queste classi)
+========================================================= */
+
+.hero{
+  min-height: 92vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding: 90px 0;
+
+  /* se vuoi mettere lo sfondo della home qui:
+     usa images/site/sfondo.jpg (se ce l’hai) */
+  background-image: url("../../images/site/sfondo.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.60));
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+}
+
+.hero-title{
+  margin:0;
+  font-weight: 200;
+  font-size: 86px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  text-shadow: 0 18px 40px rgba(0,0,0,0.55);
+}
+
+.hero-subtitle{
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 300;
+  opacity: 0.92;
+}
+
+.section{
+  padding: 56px 0;
+}
+
+.section-title{
+  font-family: "Cinzel", serif;
+  margin: 0 0 12px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-text{
+  margin: 0;
+  line-height: 1.8;
+  opacity: 0.85;
+  max-width: 900px;
+}
+
+/* =========================================================
+   PROGETTI
+========================================================= */
+
+.projects-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 22px;
+  margin-top: 16px;
+}
+
+.project-card{
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration:none;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.project-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.06);
+}
+
+.project-card img{
+  width:100%;
+  height: 260px;
+  object-fit: cover;
+  display:block;
+}
+
+.project-card .pc-body{
+  padding: 14px 16px 18px;
+}
+
+.project-card .pc-title{
+  margin:0 0 6px 0;
+  font-family:"Cinzel", serif;
+  letter-spacing:1px;
+}
+
+.project-card .pc-meta{
+  margin:0;
+  opacity:0.75;
+  font-size:14px;
+}
+
+/* gallery (pagina progetto) */
+.project-gallery{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.project-gallery img{
+  width: 240px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,0.12);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer{
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 22px 0;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 980px){
+  .site-header{ height:auto; }
+  .header-inner{
+    align-items: center;
+    padding: 12px 0;
+    flex-wrap: wrap;
+  }
+
+  .brand-logo{ height: 70px; }
+  .site-header.is-scrolled .brand-logo{ height: 54px; }
+
+  .main-nav{
+    width:100%;
+    justify-content:center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .app{ padding-top: 140px; }
+
+  .hero-title{ font-size: 54px; letter-spacing: 6px; }
+  .projects-grid{ grid-template-columns: 1fr; }
+}
