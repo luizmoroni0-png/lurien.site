@@ -1,0 +1,22 @@
+[
+  {
+    "id": "prezzi",
+    "keywords": ["prezzo", "prezzi", "costo", "quanto costa", "valore", "budget"],
+    "answer": "I prezzi dipendono dal progetto e dalla metratura. Inviaci città, metratura e una descrizione (o planimetria) e ti prepariamo un preventivo."
+  },
+  {
+    "id": "tempi",
+    "keywords": ["tempo", "tempi", "quanto ci vuole", "durata", "consegna", "scadenza"],
+    "answer": "I tempi variano in base a complessità e approvazioni. Scrivici città, metratura e tipo di progetto e ti stimiamo una timeline realistica."
+  },
+  {
+    "id": "contatti",
+    "keywords": ["contatto", "email", "telefono", "numero", "whatsapp", "come vi contatto"],
+    "answer": "Puoi contattarci via Email: luizmoroni0@gmail.com oppure WhatsApp: +55 37 99999-0000."
+  },
+  {
+    "id": "terreno",
+    "keywords": ["terreno", "lote", "lotto", "plot", "area"],
+    "answer": "Se hai già un terreno, inviaci posizione e misure. Se non lo hai, dicci zona e budget: ti aiutiamo a capire la soluzione migliore."
+  }
+]

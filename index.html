@@ -1,67 +1,207 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lurien Incorporadora</title>
-  <meta name="description" content="Lurien Incorporadora – progetti immobiliari, costruzioni e concept." />
 
-  <!-- ✅ FAVICON (metti i file come spiegato sopra) -->
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon-192.png">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/style.css"/>
 
-  <!-- Font (simile allo stile elegante del sito) -->
+  <!-- ✅ FONT PER "LURIEN" (Oxanium) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
-
-  <!-- CSS principale -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <a class="skip-link" href="#app">Vai al contenuto</a>
 
-  <header class="site-header" id="siteHeader">
+  <!-- HEADER TRASPARENTE -->
+  <header class="header">
     <div class="container header-inner">
-      <a class="brand" href="#/" aria-label="Lurien - Home">
-        <img class="brand-logo" src="images/site/logo.jpg" alt="Lurien" />
+
+      <!-- SOLO LOGO -->
+      <a class="brand brand--logo-only" href="#top" aria-label="Home">
+        <img class="brand-logo brand-logo--xl" src="images/site/logo.jpg" alt="Lurien logo" />
       </a>
 
-      <nav class="main-nav" aria-label="Menu principale">
-        <a href="#/" data-i18n="nav_home">Home</a>
-        <a href="#/chi-siamo" data-i18n="nav_about">Chi siamo</a>
-        <a href="#/progetti" data-i18n="nav_projects">Progetti</a>
-        <a href="#/contenuti" data-i18n="nav_content">Contenuti</a>
-        <a href="#/contatti" data-i18n="nav_contacts">Contatti</a>
+      <!-- MENU -->
+      <nav class="nav">
+        <a class="nav-link" href="#about" data-i18n="nav.about">Chi siamo</a>
+        <a class="nav-link" href="#projects" data-i18n="nav.projects">Progetti</a>
+        <a class="nav-link" href="#footer" data-i18n="nav.contacts">Contatti</a>
       </nav>
 
-      <div class="header-actions">
-        <!-- pulsante lingua: app.js/i18n.js lo gestiranno -->
-        <button id="langBtn" class="btn btn-ghost" type="button" aria-label="Cambia lingua">
-          IT
+      <!-- LINGUE -->
+      <div class="lang">
+        <button class="lang-pill" id="langToggle" type="button" aria-haspopup="menu" aria-expanded="false">
+          <span class="lang-flag" id="langFlag">🇮🇹</span>
+          <span class="lang-code" id="langCode">IT</span>
+          <span class="lang-caret" aria-hidden="true">▾</span>
         </button>
+
+        <div class="lang-menu" id="langMenu" role="menu" aria-label="Seleziona lingua">
+          <button class="lang-item" role="menuitem" type="button" data-lang="it" data-flag="🇮🇹">🇮🇹 Italiano</button>
+          <button class="lang-item" role="menuitem" type="button" data-lang="pt" data-flag="🇧🇷">🇧🇷 Português</button>
+          <button class="lang-item" role="menuitem" type="button" data-lang="en" data-flag="🇺🇸">🇺🇸 English</button>
+        </div>
       </div>
     </div>
   </header>
 
-  <main id="app" class="app" role="main">
-    <!-- app.js renderizza qui Home e pagine interne (router hash) -->
-    <noscript>Per usare questo sito è necessario abilitare JavaScript.</noscript>
+  <!-- HERO -->
+  <main id="top" class="hero hero--dark">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="container hero-content hero-content--center">
+      <div class="hero-wordmark" aria-label="Lurien">LURIEN</div>
+
+      <div class="hero-tagline" data-i18n="hero.tagline">
+        Dove i tuoi sogni prendono forma
+      </div>
+    </div>
   </main>
 
-  <footer class="site-footer" id="siteFooter">
+  <!-- CHI SIAMO -->
+  <section id="about" class="section section--alt">
     <div class="container">
-      <small>© <span id="year"></span> Lurien Incorporadora LTDA. All rights reserved.</small>
+      <div class="section-head">
+        <h2 class="section-title" data-i18n="about.title">Chi siamo</h2>
+        <p class="section-desc" data-i18n="about.desc">
+          Un team orientato a qualità, design e realizzazione concreta.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3 class="about-title" data-i18n="about.card1.title">Visione</h3>
+          <p class="about-text" data-i18n="about.card1.text">
+            Creiamo spazi moderni e funzionali, con un’estetica curata e un processo chiaro.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3 class="about-title" data-i18n="about.card2.title">Qualità</h3>
+          <p class="about-text" data-i18n="about.card2.text">
+            Attenzione ai dettagli, materiali e scelte coerenti con budget e obiettivi.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3 class="about-title" data-i18n="about.card3.title">Affidabilità</h3>
+          <p class="about-text" data-i18n="about.card3.text">
+            Pianificazione e comunicazione costante: meno sorprese, più controllo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGETTI -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title" data-i18n="projects.title">Progetti</h2>
+        <p class="section-desc" data-i18n="projects.desc">Alcuni esempi di lavori e concept.</p>
+      </div>
+
+      <div class="projects-grid">
+        <a class="project-card" href="#" aria-label="Villa Antonio">
+          <div class="project-thumb" style="background-image:url('images/projects/villa-antonio/cover.jpg');"></div>
+          <div class="project-body">
+            <div class="project-name">Villa Antonio</div>
+            <div class="project-meta" data-i18n="projects.meta.residential">Residenziale</div>
+          </div>
+        </a>
+
+        <a class="project-card" href="#" aria-label="Villa Alessia">
+          <div class="project-thumb" style="background-image:url('images/projects/villa-alessia/cover.jpg');"></div>
+          <div class="project-body">
+            <div class="project-name">Villa Alessia</div>
+            <div class="project-meta" data-i18n="projects.meta.residential">Residenziale</div>
+          </div>
+        </a>
+
+        <div class="project-card project-card--ghost" aria-hidden="true">
+          <div class="project-thumb"></div>
+          <div class="project-body">
+            <div class="project-name" data-i18n="projects.next.title">Prossimo progetto</div>
+            <div class="project-meta" data-i18n="projects.next.meta">Coming soon</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer-big"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="footer-top-rule"></div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <img class="footer-logo footer-logo--xl" src="images/site/logo.jpg" alt="Lurien logo" />
+            <div>
+              <h4 class="footer-title">LURIEN INCORPORADORA</h4>
+              <p class="footer-text" data-i18n="footer.slogan">Where your dreams take shape</p>
+            </div>
+          </div>
+
+          <div class="footer-badges">
+            <span class="badge" data-i18n="footer.badge1">Premium Design</span>
+            <span class="badge" data-i18n="footer.badge2">Construction</span>
+            <span class="badge" data-i18n="footer.badge3">Development</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title" data-i18n="footer.contactTitle">Contatti</h4>
+
+          <div class="footer-item">
+            <div class="footer-label" data-i18n="footer.emailLabel">Email:</div>
+            <a class="footer-link" href="mailto:luizmoroni0@gmail.com">luizmoroni0@gmail.com</a>
+          </div>
+
+          <div class="footer-item">
+            <div class="footer-label" data-i18n="footer.whatsLabel">WhatsApp:</div>
+            <a class="footer-link" href="https://wa.me/5537999990000" target="_blank" rel="noopener">
+              +55 37 99999-0000
+            </a>
+          </div>
+
+          <div class="footer-item">
+            <div class="footer-label" data-i18n="footer.hoursLabel">Orari:</div>
+            <div class="footer-text" data-i18n="footer.hoursValue">Lun–Ven 09:00–18:00</div>
+          </div>
+
+          <a class="btn-whatsapp btn-whatsapp--footer" href="https://wa.me/5537999990000" target="_blank" rel="noopener"
+             data-i18n="footer.whatsButton">
+            Contact on WhatsApp
+          </a>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title" data-i18n="footer.socialTitle">Social</h4>
+          <a class="footer-link" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a><br/>
+          <a class="footer-link" href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
+
+          <div class="footer-spacer"></div>
+
+          <h4 class="footer-title" data-i18n="footer.companyTitle">Azienda</h4>
+          <a class="footer-link" href="#about" data-i18n="nav.about">Chi siamo</a><br/>
+          <a class="footer-link" href="#projects" data-i18n="nav.projects">Progetti</a><br/>
+          <a class="footer-link" href="#top" data-i18n="footer.backTop">Torna su</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-rule"></div>
     </div>
   </footer>
 
-  <!-- JS (ordine importante: i18n -> chat -> app) -->
-  <script src="assets/js/i18n.js" defer></script>
-  <script src="assets/js/chat.js" defer></script>
-  <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/chat.js"></script>
 </body>
 </html>

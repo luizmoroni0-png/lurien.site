@@ -1,7 +1,9 @@
 /* =========================================================
    LURIEN — app.js
-   Router hash + render pagine + carica progetti da JSON + anno + lingua base
-   (Struttura modulare: index.html resta quasi sempre fisso)
+   - Default language: EN
+   - Header: Home hidden ONLY on homepage
+   - Language dropdown: click OR hover (luxury effect in CSS)
+   - Home: remove subtitle text (European Design...)
 ========================================================= */
 
 (() => {
@@ -12,30 +14,20 @@
 
   const appEl = $("#app");
   const yearEl = $("#year");
+  const yearEl2 = $("#year2");
+
+  const navHomeLink = $("#navHomeLink");
   const langBtn = $("#langBtn");
+  const langMenu = $("#langMenu");
+  const langDropdown = $("#langDropdown");
 
   const STORAGE_LANG = "lurien_lang";
-  const LANGS = ["it", "en", "pt", "es"];
+  const LANGS = ["en", "it", "pt", "es"];
 
-  // NOTE: i18n.js definisce window.I18N
-  const T = (window.I18N && window.I18N.T) ? window.I18N.T : {
-    it: {
-      nav_home: "Home",
-      nav_about: "Chi siamo",
-      nav_projects: "Progetti",
-      nav_content: "Contenuti",
-      nav_contacts: "Contatti",
-      hero_title: "LURIEN",
-      hero_subtitle: "European Design. Brazilian Heart. AI Technology.",
-      hero_cta: "Scopri i progetti",
-      about_title: "Chi siamo",
-      about_text: "Lurien Incorporadora LTDA: incorporazione, costruzione e concetti con attenzione ai dettagli.",
-      projects_title: "Progetti",
-      content_title: "Contenuti",
-      contacts_title: "Contatti",
-      loading: "Caricando..."
-    }
-  };
+  const I18N = window.I18N || {};
+  const TT = I18N.T || {};
+  const t = (lang, key) =>
+    (I18N.t ? I18N.t(lang, key) : ((TT[lang] && TT[lang][key]) || (TT.en && TT.en[key]) || key));
 
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, (m) => ({
@@ -45,27 +37,41 @@
 
   function getLang() {
     const saved = localStorage.getItem(STORAGE_LANG);
-    return LANGS.includes(saved) ? saved : "it";
+    return LANGS.includes(saved) ? saved : "en"; // ✅ default EN
   }
 
   function setLang(lang) {
-    localStorage.setItem(STORAGE_LANG, lang);
-    updateLangUI(lang);
-    applyI18n(lang);
+    const safe = LANGS.includes(lang) ? lang : "en";
+    localStorage.setItem(STORAGE_LANG, safe);
+    updateLangUI(safe);
+    applyI18n(safe);
+    window.dispatchEvent(new CustomEvent("lurien:langchange", { detail: { lang: safe } }));
   }
 
-  function nextLang(curr) {
-    const idx = LANGS.indexOf(curr);
-    return LANGS[(idx + 1) % LANGS.length];
-  }
-
-  function t(lang, key) {
-    return (T[lang] && T[lang][key]) || (T.it && T.it[key]) || key;
+  function langFlag(lang) {
+    if (lang === "it") return "🇮🇹";
+    if (lang === "pt") return "🇧🇷";
+    if (lang === "es") return "🇪🇸";
+    return "🇬🇧";
   }
 
   function updateLangUI(lang) {
-    if (langBtn) langBtn.textContent = lang.toUpperCase();
-    applyI18n(lang);
+    document.documentElement.lang = lang;
+
+    if (langBtn) {
+      const flagEl = $(".lang-flag", langBtn);
+      const codeEl = $(".lang-code", langBtn);
+      if (flagEl) flagEl.textContent = langFlag(lang);
+      if (codeEl) codeEl.textContent = lang.toUpperCase();
+      langBtn.setAttribute("aria-label", `Language: ${lang.toUpperCase()}`);
+    }
+
+    if (langMenu) {
+      $$(".lang-item", langMenu).forEach((btn) => {
+        const l = btn.getAttribute("data-lang");
+        btn.setAttribute("aria-checked", l === lang ? "true" : "false");
+      });
+    }
   }
 
   function applyI18n(lang) {
@@ -85,13 +91,22 @@
   function setActiveNav(path) {
     const href = `#/${path || ""}`.replace(/\/$/, "");
     $$(".main-nav a").forEach((a) => {
-      const on = a.getAttribute("href").replace(/\/$/, "") === href;
+      const aHref = (a.getAttribute("href") || "").replace(/\/$/, "");
+      const on = aHref === href || aHref === `index.html${href}`;
       a.setAttribute("aria-current", on ? "page" : "false");
     });
   }
 
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function updateHomeLinkVisibility(isHome) {
+    if (!navHomeLink) return;
+    navHomeLink.classList.toggle("nav-hidden", isHome);
+    navHomeLink.setAttribute("aria-hidden", isHome ? "true" : "false");
+    if (isHome) navHomeLink.setAttribute("tabindex", "-1");
+    else navHomeLink.removeAttribute("tabindex");
   }
 
   async function fetchProjects() {
@@ -102,25 +117,26 @@
 
   function renderHome() {
     const lang = getLang();
+
     setActiveNav("");
+    updateHomeLinkVisibility(true);
+
     appEl.innerHTML = `
       <section class="hero">
         <div class="container hero-inner">
-          <h1 class="hero-title" data-i18n="hero_title">${t(lang, "hero_title")}</h1>
-          <p class="hero-subtitle" data-i18n="hero_subtitle">${t(lang, "hero_subtitle")}</p>
-          <a class="btn" href="#/progetti" data-i18n="hero_cta">${t(lang, "hero_cta")}</a>
+          <h1 class="hero-title" data-i18n="hero_title">${escapeHtml(t(lang, "hero_title"))}</h1>
         </div>
       </section>
 
       <section class="container section">
-        <h2 class="section-title" data-i18n="about_title">${t(lang, "about_title")}</h2>
-        <p class="section-text" data-i18n="about_text">${t(lang, "about_text")}</p>
+        <h2 class="section-title" data-i18n="about_title">${escapeHtml(t(lang, "about_title"))}</h2>
+        <p class="section-text" data-i18n="about_text">${escapeHtml(t(lang, "about_text"))}</p>
       </section>
 
       <section class="container section">
-        <h2 class="section-title" data-i18n="projects_title">${t(lang, "projects_title")}</h2>
+        <h2 class="section-title" data-i18n="projects_title">${escapeHtml(t(lang, "projects_title"))}</h2>
         <div id="projectsGrid" class="projects-grid">
-          <div style="opacity:.7;" data-i18n="loading">${t(lang, "loading")}</div>
+          <div style="opacity:.7;" data-i18n="loading">${escapeHtml(t(lang, "loading"))}</div>
         </div>
       </section>
     `;
@@ -138,65 +154,89 @@
     try {
       const projects = await fetchProjects();
 
+      if (!Array.isArray(projects) || projects.length === 0) {
+        grid.innerHTML = `<div style="opacity:.8;" data-i18n="projects_empty">${escapeHtml(t(lang, "projects_empty"))}</div>`;
+        applyI18n(lang);
+        return;
+      }
+
       grid.innerHTML = projects.map((p) => {
-        const title = (p.title && (p.title[lang] || p.title.it || p.title.en)) || p.id;
+        const title = (p.title && (p.title[lang] || p.title.en || p.title.it)) || p.id;
         const cover = p.cover ? escapeHtml(p.cover) : "";
-        const status = escapeHtml(p.status || "");
+        const statusKey = p.status ? `status_${String(p.status).toLowerCase()}` : "";
+        const statusText = statusKey ? t(lang, statusKey) : "";
         return `
           <a class="project-card" href="#/project/${escapeHtml(p.id)}">
             ${cover ? `<img src="${cover}" alt="${escapeHtml(title)}">` : ""}
             <div class="pc-body">
               <h3 class="pc-title">${escapeHtml(title)}</h3>
-              <p class="pc-meta">${status}</p>
+              <p class="pc-meta">${escapeHtml(statusText)}</p>
             </div>
           </a>
         `;
       }).join("");
-
-      applyI18n(lang);
     } catch (e) {
-      grid.innerHTML = `<div style="opacity:.8;">Errore nel caricare projects.json: ${escapeHtml(e.message || e)}</div>`;
+      grid.innerHTML = `<div style="opacity:.85;">${escapeHtml(t(lang, "load_projects_error"))} ${escapeHtml(e.message || e)}</div>`;
     }
   }
 
-  function renderSimplePage(titleKey, text) {
+  function renderSimplePage(titleKey, textKey) {
     const lang = getLang();
     appEl.innerHTML = `
       <section class="container section">
-        <h2 class="section-title" data-i18n="${titleKey}">${t(lang, titleKey)}</h2>
-        <p class="section-text">${escapeHtml(text)}</p>
+        <h2 class="section-title" data-i18n="${titleKey}">${escapeHtml(t(lang, titleKey))}</h2>
+        <p class="section-text" data-i18n="${textKey}">${escapeHtml(t(lang, textKey))}</p>
       </section>
     `;
     applyI18n(lang);
   }
 
+  function renderProjectsPage() {
+    const lang = getLang();
+
+    appEl.innerHTML = `
+      <section class="container section">
+        <h2 class="section-title" data-i18n="projects_title">${escapeHtml(t(lang, "projects_title"))}</h2>
+        <div id="projectsGrid" class="projects-grid">
+          <div style="opacity:.7;" data-i18n="loading">${escapeHtml(t(lang, "loading"))}</div>
+        </div>
+      </section>
+    `;
+
+    applyI18n(lang);
+    renderProjectsGrid();
+  }
+
   async function renderProjectDetail(id) {
     const lang = getLang();
     setActiveNav("progetti");
+    updateHomeLinkVisibility(false);
     scrollToTop();
 
     appEl.innerHTML = `
       <section class="container section">
-        <h2 class="section-title">Caricando...</h2>
+        <h2 class="section-title" data-i18n="loading">${escapeHtml(t(lang, "loading"))}</h2>
         <p class="section-text" style="opacity:.75;">${escapeHtml(id)}</p>
       </section>
     `;
 
     try {
       const projects = await fetchProjects();
-      const p = projects.find(x => x.id === id);
+      const p = Array.isArray(projects) ? projects.find(x => x.id === id) : null;
+
       if (!p) {
         appEl.innerHTML = `
           <section class="container section">
-            <h2 class="section-title">Non trovato</h2>
-            <p class="section-text">Progetto non trovato.</p>
-            <p><a class="btn" href="#/progetti">Torna ai progetti</a></p>
+            <h2 class="section-title">${escapeHtml(t(lang, "not_found"))}</h2>
+            <p class="section-text">${escapeHtml(t(lang, "not_found"))}</p>
+            <p><a class="btn" href="#/progetti">${escapeHtml(t(lang, "back"))}</a></p>
           </section>
         `;
+        applyI18n(lang);
         return;
       }
 
-      const title = (p.title && (p.title[lang] || p.title.it || p.title.en)) || p.id;
+      const title = (p.title && (p.title[lang] || p.title.en || p.title.it)) || p.id;
       const cover = p.cover ? escapeHtml(p.cover) : "";
       const gallery = Array.isArray(p.gallery) ? p.gallery : [];
 
@@ -215,22 +255,25 @@
           ` : ""}
 
           <div style="margin-top:22px;">
-            <a class="btn" href="#/progetti">← Torna ai progetti</a>
+            <a class="btn" href="#/progetti">← ${escapeHtml(t(lang, "projects_title"))}</a>
           </div>
         </section>
       `;
+
+      applyI18n(lang);
     } catch (e) {
       appEl.innerHTML = `
         <section class="container section">
-          <h2 class="section-title">Errore</h2>
+          <h2 class="section-title">Error</h2>
           <p class="section-text">${escapeHtml(String(e.message || e))}</p>
         </section>
       `;
+      applyI18n(lang);
     }
   }
 
   function route() {
-    const parts = parseRoute(); // [] or ["progetti"] or ["project","id"]
+    const parts = parseRoute();
     const [a, b] = parts;
 
     if (!a) {
@@ -238,31 +281,26 @@
       return;
     }
 
+    updateHomeLinkVisibility(false);
+
     if (a === "chi-siamo") {
       setActiveNav("chi-siamo");
       scrollToTop();
-      renderSimplePage("about_title", "Pagina in costruzione (testo temporaneo).");
+      renderSimplePage("about_title", "about_text");
       return;
     }
 
     if (a === "progetti") {
       setActiveNav("progetti");
       scrollToTop();
-      renderHome();
+      renderProjectsPage();
       return;
     }
 
     if (a === "contenuti") {
       setActiveNav("contenuti");
       scrollToTop();
-      renderSimplePage("content_title", "Pagina contenuti (placeholder).");
-      return;
-    }
-
-    if (a === "contatti") {
-      setActiveNav("contatti");
-      scrollToTop();
-      renderSimplePage("contacts_title", "Contatti (placeholder).");
+      renderSimplePage("content_title", "content_text");
       return;
     }
 
@@ -274,10 +312,72 @@
     renderHome();
   }
 
-  function init() {
-    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  function openLangMenu() {
+    if (!langBtn || !langMenu) return;
+    langMenu.classList.add("open");
+    langBtn.setAttribute("aria-expanded", "true");
+  }
 
-    // ✅ header: logo grande in alto, poi si riduce quando scrolli
+  function closeLangMenu() {
+    if (!langBtn || !langMenu) return;
+    langMenu.classList.remove("open");
+    langBtn.setAttribute("aria-expanded", "false");
+  }
+
+  function toggleLangMenu() {
+    if (!langMenu) return;
+    if (langMenu.classList.contains("open")) closeLangMenu();
+    else openLangMenu();
+  }
+
+  function initLangDropdown() {
+    if (!langBtn || !langMenu || !langDropdown) return;
+
+    // Click open/close
+    langBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggleLangMenu();
+    });
+
+    // Select language
+    $$(".lang-item", langMenu).forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const lang = btn.getAttribute("data-lang") || "en";
+        setLang(lang);
+        closeLangMenu();
+      });
+    });
+
+    // Click outside closes
+    document.addEventListener("click", (e) => {
+      if (!langDropdown.contains(e.target)) closeLangMenu();
+    });
+
+    // Escape closes
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLangMenu();
+    });
+
+    // ✅ Hover open (desktop)
+    const canHover = window.matchMedia && window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+    if (canHover) {
+      let hoverTimer = null;
+      langDropdown.addEventListener("mouseenter", () => {
+        if (hoverTimer) clearTimeout(hoverTimer);
+        openLangMenu();
+      });
+      langDropdown.addEventListener("mouseleave", () => {
+        hoverTimer = setTimeout(() => closeLangMenu(), 120);
+      });
+    }
+  }
+
+  function init() {
+    const y = String(new Date().getFullYear());
+    if (yearEl) yearEl.textContent = y;
+    if (yearEl2) yearEl2.textContent = y;
+
+    // header glass on scroll
     const header = document.getElementById("siteHeader");
     const onScroll = () => {
       if (!header) return;
@@ -286,17 +386,12 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    // lingua iniziale
+    // language init
     const lang = getLang();
     updateLangUI(lang);
+    applyI18n(lang);
 
-    // bottone lingua: cicla IT -> EN -> PT -> ES
-    if (langBtn) {
-      langBtn.addEventListener("click", () => {
-        const curr = getLang();
-        setLang(nextLang(curr));
-      });
-    }
+    initLangDropdown();
 
     // route
     window.addEventListener("hashchange", route);

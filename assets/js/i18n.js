@@ -1,130 +1,176 @@
-window.LURIEN_TRANSLATIONS = {
-  it: {
-    nav_home: "Inizio",
-    nav_about: "Chi siamo",
-    nav_projects: "Progetti",
-    nav_content: "Contenuti",
-    nav_contacts: "Contatti",
+(function () {
+  const toggle = document.getElementById("langToggle");
+  const menu = document.getElementById("langMenu");
+  const codeEl = document.getElementById("langCode");
+  const flagEl = document.getElementById("langFlag");
 
-    hero_title: "Lurien — Incorporadora e Empreendimentos",
-    hero_subtitle: "Incorporazione e costruzioni. Scopri i nostri progetti e contattaci.",
-    hero_cta: "Vedi progetti",
+  const DICT = {
+    it: {
+      "nav.about": "Chi siamo",
+      "nav.projects": "Progetti",
+      "nav.contacts": "Contatti",
+      "hero.tagline": "Dove i tuoi sogni prendono forma",
 
-    about_title: "Chi siamo",
-    about_text: "Lurien Incorporadora LTDA: sviluppo, costruzione e concept con attenzione ai dettagli.",
+      "about.title": "Chi siamo",
+      "about.desc": "Un team orientato a qualità, design e realizzazione concreta.",
+      "about.card1.title": "Visione",
+      "about.card1.text": "Creiamo spazi moderni e funzionali, con un’estetica curata e un processo chiaro.",
+      "about.card2.title": "Qualità",
+      "about.card2.text": "Attenzione ai dettagli, materiali e scelte coerenti con budget e obiettivi.",
+      "about.card3.title": "Affidabilità",
+      "about.card3.text": "Pianificazione e comunicazione costante: meno sorprese, più controllo.",
 
-    projects_title: "Progetti",
-    projects_empty: "Nessun progetto disponibile (per ora).",
+      "projects.title": "Progetti",
+      "projects.desc": "Alcuni esempi di lavori e concept.",
+      "projects.meta.residential": "Residenziale",
+      "projects.next.title": "Prossimo progetto",
+      "projects.next.meta": "Coming soon",
 
-    content_title: "Contenuti",
-    content_text: "Qui possiamo inserire news, contenuti e aggiornamenti dei progetti.",
+      "footer.slogan": "Dove i tuoi sogni prendono forma",
+      "footer.badge1": "Design Premium",
+      "footer.badge2": "Costruzione",
+      "footer.badge3": "Sviluppo",
+      "footer.contactTitle": "Contatti",
+      "footer.emailLabel": "Email:",
+      "footer.whatsLabel": "WhatsApp:",
+      "footer.hoursLabel": "Orari:",
+      "footer.hoursValue": "Lun–Ven 09:00–18:00",
+      "footer.whatsButton": "Contact on WhatsApp",
+      "footer.socialTitle": "Social",
+      "footer.companyTitle": "Azienda",
+      "footer.backTop": "Torna su"
+    },
 
-    contacts_title: "Contatti",
-    contacts_text: "Scorri in basso per vedere tutti i contatti e i dettagli.",
+    pt: {
+      "nav.about": "Quem somos",
+      "nav.projects": "Projetos",
+      "nav.contacts": "Contato",
+      "hero.tagline": "Onde seus sonhos ganham forma",
 
-    back: "Indietro",
-    loading: "Caricamento…",
-    not_found: "Pagina non trovata",
-    open_project: "Apri progetto",
+      "about.title": "Quem somos",
+      "about.desc": "Uma equipe focada em qualidade, design e entrega real.",
+      "about.card1.title": "Visão",
+      "about.card1.text": "Criamos espaços modernos e funcionais, com estética refinada e processo claro.",
+      "about.card2.title": "Qualidade",
+      "about.card2.text": "Atenção aos detalhes, materiais e escolhas alinhadas ao orçamento e objetivos.",
+      "about.card3.title": "Confiabilidade",
+      "about.card3.text": "Planejamento e comunicação constante: menos surpresas, mais controle.",
 
-    status_vendita: "Vendita",
-    status_venduto: "Venduto",
-    status_costruzione: "In costruzione",
-    status_concept_ia: "Concept IA",
+      "projects.title": "Projetos",
+      "projects.desc": "Alguns exemplos de trabalhos e conceitos.",
+      "projects.meta.residential": "Residencial",
+      "projects.next.title": "Próximo projeto",
+      "projects.next.meta": "Em breve",
 
-    footer_brand_text: "Lurien Incorporadora LTDA: incorporazione, costruzione e progetti.",
-    footer_contacts_title: "Contatti",
-    footer_email: "Email",
-    footer_whatsapp: "WhatsApp",
-    footer_instagram: "Instagram",
-    footer_address_title: "Indirizzo",
-    footer_address_line1: "Brasile — (inserire città)",
-    footer_hours: "Orari: 09:00–18:00"
-  },
+      "footer.slogan": "Onde seus sonhos ganham forma",
+      "footer.badge1": "Design Premium",
+      "footer.badge2": "Construção",
+      "footer.badge3": "Desenvolvimento",
+      "footer.contactTitle": "Contato",
+      "footer.emailLabel": "Email:",
+      "footer.whatsLabel": "WhatsApp:",
+      "footer.hoursLabel": "Horário:",
+      "footer.hoursValue": "Seg–Sex 09:00–18:00",
+      "footer.whatsButton": "Contact on WhatsApp",
+      "footer.socialTitle": "Social",
+      "footer.companyTitle": "Empresa",
+      "footer.backTop": "Voltar ao topo"
+    },
 
-  en: {
-    nav_home: "Home",
-    nav_about: "About",
-    nav_projects: "Projects",
-    nav_content: "Content",
-    nav_contacts: "Contacts",
+    en: {
+      "nav.about": "About",
+      "nav.projects": "Projects",
+      "nav.contacts": "Contact",
+      "hero.tagline": "Where your dreams take shape",
 
-    hero_title: "Lurien — Development & Projects",
-    hero_subtitle: "Development and construction. Discover our projects and contact us.",
-    hero_cta: "View projects",
+      "about.title": "About",
+      "about.desc": "A team focused on quality, design, and real delivery.",
+      "about.card1.title": "Vision",
+      "about.card1.text": "We create modern, functional spaces with refined aesthetics and a clear process.",
+      "about.card2.title": "Quality",
+      "about.card2.text": "Attention to detail, materials, and choices aligned with budget and goals.",
+      "about.card3.title": "Reliability",
+      "about.card3.text": "Planning and constant communication: fewer surprises, more control.",
 
-    about_title: "About",
-    about_text: "Lurien Incorporadora LTDA: development, construction and concepts with attention to detail.",
+      "projects.title": "Projects",
+      "projects.desc": "A few examples of work and concepts.",
+      "projects.meta.residential": "Residential",
+      "projects.next.title": "Next project",
+      "projects.next.meta": "Coming soon",
 
-    projects_title: "Projects",
-    projects_empty: "No projects available (yet).",
+      "footer.slogan": "Where your dreams take shape",
+      "footer.badge1": "Premium Design",
+      "footer.badge2": "Construction",
+      "footer.badge3": "Development",
+      "footer.contactTitle": "Contact",
+      "footer.emailLabel": "Email:",
+      "footer.whatsLabel": "WhatsApp:",
+      "footer.hoursLabel": "Hours:",
+      "footer.hoursValue": "Mon–Fri 09:00–18:00",
+      "footer.whatsButton": "Contact on WhatsApp",
+      "footer.socialTitle": "Social",
+      "footer.companyTitle": "Company",
+      "footer.backTop": "Back to top"
+    }
+  };
 
-    content_title: "Content",
-    content_text: "Here we can add news, content and project updates.",
-
-    contacts_title: "Contacts",
-    contacts_text: "Scroll down to see all contacts and details.",
-
-    back: "Back",
-    loading: "Loading…",
-    not_found: "Page not found",
-    open_project: "Open project",
-
-    status_vendita: "For sale",
-    status_venduto: "Sold",
-    status_costruzione: "Under construction",
-    status_concept_ia: "AI concept",
-
-    footer_brand_text: "Lurien Incorporadora LTDA: development, construction and projects.",
-    footer_contacts_title: "Contacts",
-    footer_email: "Email",
-    footer_whatsapp: "WhatsApp",
-    footer_instagram: "Instagram",
-    footer_address_title: "Address",
-    footer_address_line1: "Brazil — (add city)",
-    footer_hours: "Hours: 09:00–18:00"
-  },
-
-  pt: {
-    nav_home: "Início",
-    nav_about: "Quem somos",
-    nav_projects: "Projetos",
-    nav_content: "Conteúdos",
-    nav_contacts: "Contato",
-
-    hero_title: "Lurien — Incorporadora e Empreendimentos",
-    hero_subtitle: "Incorporação e empreendimentos. Conheça nossos projetos e fale conosco.",
-    hero_cta: "Ver projetos",
-
-    about_title: "Quem somos",
-    about_text: "Lurien Incorporadora LTDA: incorporação, construção e conceitos com atenção aos detalhes.",
-
-    projects_title: "Projetos",
-    projects_empty: "Nenhum projeto disponível (ainda).",
-
-    content_title: "Conteúdos",
-    content_text: "Aqui podemos adicionar notícias, conteúdos e atualizações dos projetos.",
-
-    contacts_title: "Contato",
-    contacts_text: "Role para baixo para ver todos os contatos e detalhes.",
-
-    back: "Voltar",
-    loading: "Carregando…",
-    not_found: "Página não encontrada",
-    open_project: "Abrir projeto",
-
-    status_vendita: "À venda",
-    status_venduto: "Vendido",
-    status_costruzione: "Em construção",
-    status_concept_ia: "Conceito IA",
-
-    footer_brand_text: "Lurien Incorporadora LTDA: incorporação, construção e empreendimentos.",
-    footer_contacts_title: "Contato",
-    footer_email: "Email",
-    footer_whatsapp: "WhatsApp",
-    footer_instagram: "Instagram",
-    footer_address_title: "Endereço",
-    footer_address_line1: "Brasil — (inserir cidade)",
-    footer_hours: "Horário: 09:00–18:00"
+  function openMenu() {
+    menu.classList.add("is-open");
+    toggle.setAttribute("aria-expanded", "true");
   }
-};
+  function closeMenu() {
+    menu.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+  }
+
+  function t(lang, key) {
+    return (DICT[lang] && DICT[lang][key]) || (DICT.it && DICT.it[key]) || "";
+  }
+
+  function applyTranslations(lang) {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      const value = t(lang, key);
+      if (value) el.textContent = value;
+    });
+
+    // Title (opzionale ma utile)
+    if (lang === "pt") document.title = "Lurien Incorporadora";
+    if (lang === "en") document.title = "Lurien Incorporadora";
+    if (lang === "it") document.title = "Lurien Incorporadora";
+  }
+
+  function setLang(lang, flag) {
+    codeEl.textContent = (lang || "it").toUpperCase();
+    flagEl.textContent = flag || "🇮🇹";
+    localStorage.setItem("site_lang", lang);
+    localStorage.setItem("site_flag", flag || "🇮🇹");
+    applyTranslations(lang);
+  }
+
+  // Init
+  const savedLang = localStorage.getItem("site_lang") || "it";
+  const savedFlag = localStorage.getItem("site_flag") || (savedLang === "pt" ? "🇧🇷" : savedLang === "en" ? "🇺🇸" : "🇮🇹");
+  setLang(savedLang, savedFlag);
+
+  // Menu actions
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.contains("is-open") ? closeMenu() : openMenu();
+  });
+
+  document.addEventListener("click", () => closeMenu());
+
+  menu.addEventListener("click", (e) => {
+    const btn = e.target.closest(".lang-item");
+    if (!btn) return;
+    setLang(btn.dataset.lang, btn.dataset.flag);
+    closeMenu();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+})();
