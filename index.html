@@ -8,31 +8,26 @@
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/css/style.css"/>
 
-  <!-- ✅ FONT PER "LURIEN" (Oxanium) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Outfit:wght@500;700;900&family=Viga&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- HEADER TRASPARENTE -->
   <header class="header">
     <div class="container header-inner">
 
-      <!-- SOLO LOGO -->
       <a class="brand brand--logo-only" href="#top" aria-label="Home">
         <img class="brand-logo brand-logo--xl" src="images/site/logo.jpg" alt="Lurien logo" />
       </a>
 
-      <!-- MENU -->
       <nav class="nav">
         <a class="nav-link" href="#about" data-i18n="nav.about">Chi siamo</a>
         <a class="nav-link" href="#projects" data-i18n="nav.projects">Progetti</a>
         <a class="nav-link" href="#footer" data-i18n="nav.contacts">Contatti</a>
       </nav>
 
-      <!-- LINGUE -->
       <div class="lang">
         <button class="lang-pill" id="langToggle" type="button" aria-haspopup="menu" aria-expanded="false">
           <span class="lang-flag" id="langFlag">🇮🇹</span>
@@ -49,7 +44,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <main id="top" class="hero hero--dark">
     <div class="hero-bg" aria-hidden="true"></div>
 
@@ -62,7 +56,6 @@
     </div>
   </main>
 
-  <!-- CHI SIAMO -->
   <section id="about" class="section section--alt">
     <div class="container">
       <div class="section-head">
@@ -72,6 +65,12 @@
         </p>
       </div>
 
+      <div class="about-bio">
+        <p data-i18n="about.bio.p1"></p>
+        <p data-i18n="about.bio.p2"></p>
+        <p data-i18n="about.bio.p3"></p>
+        <p class="about-bio-highlight" data-i18n="about.bio.p4"></p>
+      </div>
       <div class="about-grid">
         <div class="about-card">
           <h3 class="about-title" data-i18n="about.card1.title">Visione</h3>
@@ -97,7 +96,6 @@
     </div>
   </section>
 
-  <!-- PROGETTI -->
   <section id="projects" class="section">
     <div class="container">
       <div class="section-head">
@@ -135,7 +133,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer id="footer" class="footer">
     <div class="container">
       <div class="footer-top-rule"></div>
@@ -161,15 +158,25 @@
           <h4 class="footer-title" data-i18n="footer.contactTitle">Contatti</h4>
 
           <div class="footer-item">
-            <div class="footer-label" data-i18n="footer.emailLabel">Email:</div>
-            <a class="footer-link" href="mailto:luizmoroni0@gmail.com">luizmoroni0@gmail.com</a>
+            <div class="footer-label" data-i18n="footer.phoneLabel">Telefono:</div>
+            <a class="footer-link" href="tel:+5537999760175">+55 37 99976-0175</a>
           </div>
 
           <div class="footer-item">
-            <div class="footer-label" data-i18n="footer.whatsLabel">WhatsApp:</div>
-            <a class="footer-link" href="https://wa.me/5537999990000" target="_blank" rel="noopener">
-              +55 37 99999-0000
-            </a>
+            <div class="footer-label" data-i18n="footer.landlineLabel">Telefono fisso:</div>
+            <a class="footer-link" href="tel:+553732371396">+55 37 3237-1396</a>
+          </div>
+
+          <div class="footer-item">
+            <div class="footer-label" data-i18n="footer.emailLabel">Email:</div>
+            <a class="footer-link" href="mailto:supervisaolurienincorporadora@gmail.com">supervisaolurienincorporadora@gmail.com</a>
+          </div>
+
+          <div class="footer-item">
+            <div class="footer-label" data-i18n="footer.addressLabel">Indirizzo:</div>
+            <div class="footer-text" data-i18n="footer.addressValue">
+              R. Antônio Carlos, 2071 - São Cristovao, Pará de Minas - MG, 35660-390
+            </div>
           </div>
 
           <div class="footer-item">
@@ -177,7 +184,10 @@
             <div class="footer-text" data-i18n="footer.hoursValue">Lun–Ven 09:00–18:00</div>
           </div>
 
-          <a class="btn-whatsapp btn-whatsapp--footer" href="https://wa.me/5537999990000" target="_blank" rel="noopener"
+          <a class="btn-whatsapp btn-whatsapp--footer"
+             href="https://wa.me/5537999760175"
+             target="_blank"
+             rel="noopener"
              data-i18n="footer.whatsButton">
             Contact on WhatsApp
           </a>
@@ -185,7 +195,7 @@
 
         <div class="footer-col">
           <h4 class="footer-title" data-i18n="footer.socialTitle">Social</h4>
-          <a class="footer-link" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a><br/>
+          <a class="footer-link" href="https://www.instagram.com/lurien_inc/?igsh=MWR3NHAydDNvem9nNQ%3D%3D#" target="_blank" rel="noopener">Instagram</a><br/>
           <a class="footer-link" href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
 
           <div class="footer-spacer"></div>
