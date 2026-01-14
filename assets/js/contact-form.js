@@ -9,7 +9,9 @@
 
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdaakkdn";
 
-  const form = document.getElementById("contactForm");
+  
+  const MAX_MESSAGE = 1000;
+const form = document.getElementById("contactForm");
   const statusEl = document.getElementById("contactFormStatus");
   if (!form) return;
 
@@ -26,6 +28,11 @@
 
     if (!name || !email || !message) {
       setStatus("Compila Nome, Email e Messaggio.");
+      return;
+    }
+
+    if (message.length > MAX_MESSAGE) {
+      setStatus(`Messaggio troppo lungo (max ${MAX_MESSAGE} caratteri).`);
       return;
     }
 

@@ -1,22 +1,84 @@
 [
   {
     "id": "prezzi",
-    "keywords": ["prezzo", "prezzi", "costo", "quanto costa", "valore", "budget"],
+    "keywords": [
+      "prezzo",
+      "prezzi",
+      "costo",
+      "quanto costa",
+      "valore",
+      "budget"
+    ],
     "answer": "I prezzi dipendono dal progetto e dalla metratura. Inviaci città, metratura e una descrizione (o planimetria) e ti prepariamo un preventivo."
   },
   {
     "id": "tempi",
-    "keywords": ["tempo", "tempi", "quanto ci vuole", "durata", "consegna", "scadenza"],
+    "keywords": [
+      "tempo",
+      "tempi",
+      "quanto ci vuole",
+      "durata",
+      "consegna",
+      "scadenza"
+    ],
     "answer": "I tempi variano in base a complessità e approvazioni. Scrivici città, metratura e tipo di progetto e ti stimiamo una timeline realistica."
   },
   {
     "id": "contatti",
-    "keywords": ["contatto", "email", "telefono", "numero", "whatsapp", "come vi contatto"],
-    "answer": "Puoi contattarci via Email: luizmoroni0@gmail.com oppure WhatsApp: +55 37 99999-0000."
+    "keywords": [
+      "contatto",
+      "email",
+      "telefono",
+      "numero",
+      "whatsapp",
+      "come vi contatto"
+    ],
+    "answer": "Puoi contattarci via Email: supervisaolurienincorporadora@gmail.com | WhatsApp: +55 37 99976-0175 | Fisso: +55 37 3237-1396."
   },
   {
     "id": "terreno",
-    "keywords": ["terreno", "lote", "lotto", "plot", "area"],
+    "keywords": [
+      "terreno",
+      "lote",
+      "lotto",
+      "plot",
+      "area"
+    ],
     "answer": "Se hai già un terreno, inviaci posizione e misure. Se non lo hai, dicci zona e budget: ti aiutiamo a capire la soluzione migliore."
+  },
+  {
+    "id": "vendita",
+    "keywords": [
+      "vendita"
+    ],
+    "answer": "Sì, Lurien progetta, costruisce e vende immobili propri. Puoi vedere le disponibilità nella sezione 'Progetti' del sito o scriverci per conoscere i cantieri in arrivo."
+  },
+  {
+    "id": "acquisto_terreno",
+    "keywords": [
+      "terreno"
+    ],
+    "answer": "Siamo sempre interessati a valutare nuovi terreni per i nostri sviluppi. Se hai un lotto in una buona posizione, inviaci i dettagli per una valutazione."
+  },
+  {
+    "id": "dove",
+    "keywords": [
+      "dove"
+    ],
+    "answer": "Operiamo principalmente a Pará de Minas e dintorni, selezionando le zone con il più alto potenziale di rivalutazione."
+  },
+  {
+    "id": "finanziamento",
+    "keywords": [
+      "finanziamento"
+    ],
+    "answer": "Sì, i nostri immobili sono finanziabili. Lavoriamo con diverse banche per facilitare l'acquisto. Contattaci per una simulazione."
+  },
+  {
+    "id": "visita",
+    "keywords": [
+      "visita"
+    ],
+    "answer": "Certamente. È possibile visitare i cantieri in corso o le case modello su appuntamento. Scrivici su WhatsApp per fissare una data."
   }
 ]

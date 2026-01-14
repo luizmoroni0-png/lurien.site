@@ -1,0 +1,8 @@
+[
+  { "id": "sale", "keywords": ["sale"], "answer": "Yes, Lurien designs, builds, and sells its own properties. You can view available units in the 'Projects' section or contact us for upcoming releases." },
+  { "id": "buy_land", "keywords": ["land"], "answer": "We are actively looking for new land for development. If you have a well-located lot to sell, please send us the details for evaluation." },
+  { "id": "where", "keywords": ["where"], "answer": "We operate mainly in Pará de Minas and the surrounding region, selecting areas with the highest appreciation potential." },
+  { "id": "financing", "keywords": ["financing"], "answer": "Yes, our properties are eligible for bank financing. We can assist with the process. Contact us for a simulation." },
+  { "id": "visit", "keywords": ["visit"], "answer": "Absolutely. You can schedule a visit to our construction sites or model homes. Message us on WhatsApp to book a time." },
+  { "id": "contact", "keywords": ["contact"], "answer": "If you have specific questions or need personalized advice, our team is ready to help. Message us on WhatsApp at +55 37 99999-0000: one of our architects will reply personally to provide all the technical and commercial details you require." }
+]

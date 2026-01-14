@@ -1,0 +1,8 @@
+[
+  { "id": "venda", "keywords": ["venda"], "answer": "Sim, a Lurien projeta, constrói e vende seus próprios imóveis. Você pode ver as unidades disponíveis na seção 'Projetos' ou nos chamar para saber dos lançamentos." },
+  { "id": "compra_terreno", "keywords": ["terreno"], "answer": "Estamos sempre avaliando novos terrenos para incorporação. Se você tem um lote bem localizado, envie os detalhes para nossa análise." },
+  { "id": "onde", "keywords": ["onde"], "answer": "Atuamos principalmente em Pará de Minas e região, focando nas áreas com maior potencial de valorização." },
+  { "id": "financiamento", "keywords": ["financiamento"], "answer": "Sim, nossos imóveis aceitam financiamento bancário. Trabalhamos para facilitar sua aprovação. Entre em contato para uma simulação." },
+  { "id": "visita", "keywords": ["visita"], "answer": "Com certeza. Agendamos visitas às obras em andamento ou casas modelo. Chame no WhatsApp para marcar um horário." },
+  { "id": "contato", "keywords": ["contato"], "answer": "Se você tem dúvidas específicas ou deseja uma consultoria personalizada, nossa equipe está pronta para atender. Escreva-nos no WhatsApp +55 37 99999-0000: um de nossos arquitetos responderá pessoalmente para fornecer todos os detalhes técnicos e comerciais que você precisa." }
+]
