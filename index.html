@@ -17,7 +17,6 @@
 
   <header class="header">
     <div class="container header-inner">
-
       <a class="brand brand--logo-only" href="#top" aria-label="Home">
         <img class="brand-logo brand-logo--xl" src="images/site/logo.jpg" alt="Lurien logo" />
       </a>
@@ -25,7 +24,7 @@
       <nav class="nav">
         <a class="nav-link" href="#about" data-i18n="nav.about">Chi siamo</a>
         <a class="nav-link" href="#projects" data-i18n="nav.projects">Progetti</a>
-        <a class="nav-link" href="#footer" data-i18n="nav.contacts">Contatti</a>
+        <a class="nav-link" href="#contatti" data-i18n="nav.contacts">Contatti</a>
       </nav>
 
       <div class="lang">
@@ -46,51 +45,39 @@
 
   <main id="top" class="hero hero--dark">
     <div class="hero-bg" aria-hidden="true"></div>
-
     <div class="container hero-content hero-content--center">
       <div class="hero-wordmark" aria-label="Lurien">LURIEN</div>
-
-      <div class="hero-tagline" data-i18n="hero.tagline">
-        Dove i tuoi sogni prendono forma
-      </div>
+      <div class="hero-tagline">Dove i tuoi sogni prendono forma</div>
     </div>
   </main>
 
   <section id="about" class="section section--alt">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title" data-i18n="about.title">Chi siamo</h2>
-        <p class="section-desc" data-i18n="about.desc">
-          Un team orientato a qualità, design e realizzazione concreta.
-        </p>
+        <h2 class="section-title">Chi siamo</h2>
+        <p class="section-desc">Un team orientato a qualità, design e realizzazione concreta.</p>
       </div>
 
       <div class="about-bio">
-        <p data-i18n="about.bio.p1"></p>
-        <p data-i18n="about.bio.p2"></p>
-        <p data-i18n="about.bio.p3"></p>
-        <p class="about-bio-highlight" data-i18n="about.bio.p4"></p>
+        <p>Creiamo spazi moderni e funzionali, con un’estetica curata e un processo chiaro.</p>
+        <p>Attenzione ai dettagli, materiali e scelte coerenti con budget e obiettivi.</p>
+        <p>Pianificazione e comunicazione costante: meno sorprese, più controllo.</p>
       </div>
+
       <div class="about-grid">
         <div class="about-card">
-          <h3 class="about-title" data-i18n="about.card1.title">Visione</h3>
-          <p class="about-text" data-i18n="about.card1.text">
-            Creiamo spazi moderni e funzionali, con un’estetica curata e un processo chiaro.
-          </p>
+          <h3 class="about-title">Visione</h3>
+          <p class="about-text">Creiamo spazi moderni e funzionali.</p>
         </div>
 
         <div class="about-card">
-          <h3 class="about-title" data-i18n="about.card2.title">Qualità</h3>
-          <p class="about-text" data-i18n="about.card2.text">
-            Attenzione ai dettagli, materiali e scelte coerenti con budget e obiettivi.
-          </p>
+          <h3 class="about-title">Qualità</h3>
+          <p class="about-text">Attenzione ai dettagli e materiali di pregio.</p>
         </div>
 
         <div class="about-card">
-          <h3 class="about-title" data-i18n="about.card3.title">Affidabilità</h3>
-          <p class="about-text" data-i18n="about.card3.text">
-            Pianificazione e comunicazione costante: meno sorprese, più controllo.
-          </p>
+          <h3 class="about-title">Affidabilità</h3>
+          <p class="about-text">Comunicazione chiara e pianificazione precisa.</p>
         </div>
       </div>
     </div>
@@ -99,119 +86,116 @@
   <section id="projects" class="section">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title" data-i18n="projects.title">Progetti</h2>
-        <p class="section-desc" data-i18n="projects.desc">Alcuni esempi di lavori e concept.</p>
+        <h2 class="section-title">Progetti</h2>
+        <p class="section-desc">Alcuni esempi di lavori e concept.</p>
       </div>
 
       <div class="projects-grid">
-        <a class="project-card" href="#" aria-label="Villa Antonio">
+        <a class="project-card" href="#">
           <div class="project-thumb" style="background-image:url('images/projects/villa-antonio/cover.jpg');"></div>
           <div class="project-body">
             <div class="project-name">Villa Antonio</div>
-            <div class="project-meta" data-i18n="projects.meta.residential">Residenziale</div>
+            <div class="project-meta">Residenziale</div>
           </div>
         </a>
 
-        <a class="project-card" href="#" aria-label="Villa Alessia">
+        <a class="project-card" href="#">
           <div class="project-thumb" style="background-image:url('images/projects/villa-alessia/cover.jpg');"></div>
           <div class="project-body">
             <div class="project-name">Villa Alessia</div>
-            <div class="project-meta" data-i18n="projects.meta.residential">Residenziale</div>
+            <div class="project-meta">Residenziale</div>
           </div>
         </a>
 
-        <div class="project-card project-card--ghost" aria-hidden="true">
+        <div class="project-card project-card--ghost">
           <div class="project-thumb"></div>
           <div class="project-body">
-            <div class="project-name" data-i18n="projects.next.title">Prossimo progetto</div>
-            <div class="project-meta" data-i18n="projects.next.meta">Coming soon</div>
+            <div class="project-name">Prossimo progetto</div>
+            <div class="project-meta">Coming soon</div>
           </div>
         </div>
       </div>
-
-      <div class="spacer-big"></div>
     </div>
   </section>
 
-  <footer id="footer" class="footer">
+  <!-- ✅ FOOTER con contatti + mappa + form -->
+  <section id="contatti" class="footer">
     <div class="container">
       <div class="footer-top-rule"></div>
 
-      <div class="footer-grid">
+      <div class="footer-grid footer-grid--contact">
+
+        <!-- SINISTRA: INDIRIZZO + MAPPA -->
         <div class="footer-col">
-          <div class="footer-brand">
-            <img class="footer-logo footer-logo--xl" src="images/site/logo.jpg" alt="Lurien logo" />
-            <div>
-              <h4 class="footer-title">LURIEN INCORPORADORA</h4>
-              <p class="footer-text" data-i18n="footer.slogan">Where your dreams take shape</p>
-            </div>
+          <h4 class="footer-title">Indirizzo</h4>
+
+          <div class="footer-item">
+            <div class="footer-label">Indirizzo:</div>
+            <div class="footer-text"><a class="footer-link footer-link--maps" href="https://www.google.com/maps/dir/?api=1&destination=R.%20Ant%C3%B4nio%20Carlos%2C%202071%20-%20S%C3%A3o%20Cristovao%2C%20Par%C3%A1%20de%20Minas%20-%20MG" target="_blank" rel="noopener noreferrer" aria-label="Apri indicazioni su Google Maps">R. Antônio Carlos, 2071 - São Cristovao, Pará de Minas - MG</a></div>
           </div>
 
-          <div class="footer-badges">
-            <span class="badge" data-i18n="footer.badge1">Premium Design</span>
-            <span class="badge" data-i18n="footer.badge2">Construction</span>
-            <span class="badge" data-i18n="footer.badge3">Development</span>
+          <div class="footer-map">
+            <iframe
+              title="Mappa - Lurien"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=R.%20Ant%C3%B4nio%20Carlos%2C%202071%20-%20S%C3%A3o%20Cristovao%2C%20Par%C3%A1%20de%20Minas%20-%20MG&output=embed"
+              allowfullscreen>
+            </iframe>
           </div>
         </div>
 
+        <!-- CENTRO: FORM (SOPRA) + CONTATTI (SOTTO) -->
         <div class="footer-col">
-          <h4 class="footer-title" data-i18n="footer.contactTitle">Contatti</h4>
+          <h4 class="footer-title">Scrivici un messaggio</h4>
+
+          <form id="contactForm" class="contact-form" action="https://formspree.io/f/xdaakkdn" method="POST">
+            <label>Nome</label>
+            <input type="text" name="name" required placeholder="Il tuo nome">
+
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="Il tuo indirizzo email">
+
+            <label>Telefono</label>
+            <input type="tel" name="phone" placeholder="Numero di telefono">
+
+            <label>Messaggio</label>
+            <textarea name="message" rows="4" required placeholder="Scrivi qui il tuo messaggio..."></textarea>
+
+            <button type="submit" class="btn-send">Invia</button>
+
+            <div class="contact-form-status" id="contactFormStatus" aria-live="polite"></div>
+          </form>
+          <h4 class="footer-title footer-title--sub">Contatti</h4>
 
           <div class="footer-item">
-            <div class="footer-label" data-i18n="footer.phoneLabel">Telefono:</div>
+            <div class="footer-label">Telefono:</div>
             <a class="footer-link" href="tel:+5537999760175">+55 37 99976-0175</a>
           </div>
 
           <div class="footer-item">
-            <div class="footer-label" data-i18n="footer.landlineLabel">Telefono fisso:</div>
+            <div class="footer-label">Telefono fisso:</div>
             <a class="footer-link" href="tel:+553732371396">+55 37 3237-1396</a>
           </div>
 
           <div class="footer-item">
-            <div class="footer-label" data-i18n="footer.emailLabel">Email:</div>
+            <div class="footer-label">Email:</div>
             <a class="footer-link" href="mailto:supervisaolurienincorporadora@gmail.com">supervisaolurienincorporadora@gmail.com</a>
           </div>
-
-          <div class="footer-item">
-            <div class="footer-label" data-i18n="footer.addressLabel">Indirizzo:</div>
-            <div class="footer-text" data-i18n="footer.addressValue">
-              R. Antônio Carlos, 2071 - São Cristovao, Pará de Minas - MG, 35660-390
-            </div>
-          </div>
-
-          <div class="footer-item">
-            <div class="footer-label" data-i18n="footer.hoursLabel">Orari:</div>
-            <div class="footer-text" data-i18n="footer.hoursValue">Lun–Ven 09:00–18:00</div>
-          </div>
-
-          <a class="btn-whatsapp btn-whatsapp--footer"
+<a class="btn-whatsapp btn-whatsapp--footer"
              href="https://wa.me/5537999760175"
              target="_blank"
-             rel="noopener"
-             data-i18n="footer.whatsButton">
-            Contact on WhatsApp
+             rel="noopener">
+            Contatto WhatsApp
           </a>
         </div>
+</div>
 
-        <div class="footer-col">
-          <h4 class="footer-title" data-i18n="footer.socialTitle">Social</h4>
-          <a class="footer-link" href="https://www.instagram.com/lurien_inc/?igsh=MWR3NHAydDNvem9nNQ%3D%3D#" target="_blank" rel="noopener">Instagram</a><br/>
-          <a class="footer-link" href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a>
-
-          <div class="footer-spacer"></div>
-
-          <h4 class="footer-title" data-i18n="footer.companyTitle">Azienda</h4>
-          <a class="footer-link" href="#about" data-i18n="nav.about">Chi siamo</a><br/>
-          <a class="footer-link" href="#projects" data-i18n="nav.projects">Progetti</a><br/>
-          <a class="footer-link" href="#top" data-i18n="footer.backTop">Torna su</a>
-        </div>
       </div>
-
-      <div class="footer-bottom-rule"></div>
-    </div>
-  </footer>
-
-  <script src="assets/js/i18n.js"></script>
+</div>
+  </section>
+<script src="assets/js/i18n.js"></script>
+  <script src="assets/js/contact-form.js"></script>
   <script src="assets/js/chat.js"></script>
 </body>
 </html>

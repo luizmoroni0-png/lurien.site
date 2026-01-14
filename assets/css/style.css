@@ -266,6 +266,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   grid-template-columns: 1.1fr 1fr 1fr;
   gap:40px;
 }
+
+/* ✅ NUOVO: layout a 2 colonne (per il footer “pulito”) */
+.footer-grid.footer-grid--two{
+  grid-template-columns: 1.2fr 1fr;
+}
+
 .footer-title{
   color:var(--gold);
   font-weight:800;
@@ -361,5 +367,158 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .about-bio {
     text-align: left;
     padding: 0 4px;
+  }
+}/* ==== FORM NEL FOOTER ==== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.contact-form label {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #fff;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.btn-send {
+  background: var(--gold);
+  border: none;
+  color: #000;
+  font-weight: 900;
+  padding: 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-send:hover {
+  filter: brightness(1.1);
+}
+
+/* ====== FOOTER CONTACT LAYOUT (3 colonne) ====== */
+.footer-grid.footer-grid--contact{
+  grid-template-columns: 1.35fr 1.15fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-title--sub{
+  margin-top: 10px;
+}
+
+.footer-map{
+  margin-top: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255,255,255,.03);
+}
+
+.footer-map iframe{
+  width: 100%;
+  height: 260px;
+  border: 0;
+  display: block;
+}
+
+/* WhatsApp piccolo nel footer */
+.btn-whatsapp--footer{
+  width: fit-content;
+  padding: 8px 12px;
+  font-size: 13px;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* Status form */
+.contact-form-status{
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,.85);
+  min-height: 18px;
+}
+
+@media (max-width: 980px){
+  .footer-grid.footer-grid--contact{
+    grid-template-columns: 1.35fr 1.15fr;
+    gap: 28px;
+  }
+  .footer-map iframe{ height: 240px; }
+}
+
+
+/* ====== SIMPLE SITE FOOTER (pulito) ====== */
+.site-footer{
+  padding: 26px 0 34px 0;
+}
+
+.site-footer-inner{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 18px;
+  padding-top: 22px;
+}
+
+.site-footer-brand{
+  color: var(--gold);
+  font-weight: 900;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+
+.site-footer-note{
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.site-footer-right{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.site-footer-link{
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.site-footer-link:hover{ color:#fff; }
+
+.site-footer-sep{
+  color: rgba(255,255,255,.25);
+}
+
+/* responsive */
+@media (max-width: 980px){
+  .site-footer-inner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .site-footer-right{
+    justify-content: flex-start;
   }
 }
