@@ -1,0 +1,73 @@
+
+/* ===========================================
+   MODE: tablet-landscape
+   This file forces a "preview" layout per folder.
+   It DOES NOT remove any existing styles.
+   =========================================== */
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(0,0,0,.18);
+  cursor: pointer;
+}
+
+.nav-toggle-lines {
+  width: 22px;
+  height: 14px;
+  display: block;
+  position: relative;
+}
+.nav-toggle-lines::before,
+.nav-toggle-lines::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: #fff;
+  border-radius: 999px;
+}
+.nav-toggle-lines::before { top: 2px; }
+.nav-toggle-lines::after { bottom: 2px; }
+
+/* Hide nav by default; show when toggled */
+#siteNav, nav.nav, nav.main-nav {
+  display: none !important;
+}
+#siteNav.is-open, nav.nav.is-open, nav.main-nav.is-open {
+  display: flex !important;
+}
+
+/* Menu panel */
+#siteNav.is-open, nav.nav.is-open, nav.main-nav.is-open {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  padding: 14px;
+  gap: 10px;
+  flex-direction: column;
+  background: rgba(0,0,0,.92);
+  backdrop-filter: blur(8px);
+}
+
+/* Make menu links more tappable */
+#siteNav.is-open a, nav.nav.is-open a, nav.main-nav.is-open a {
+  padding: 12px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.08);
+  text-decoration: none;
+}
+
+/* When menu is open, prevent accidental horizontal scroll */
+html.nav-open, html.nav-open body {
+  overflow-x: hidden;
+}
+
+html { max-width: 1024px; margin: 0 auto; }

@@ -1,316 +1,44 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lurien Incorporadora</title>
-
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="assets/css/style.css"/>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Outfit:wght@500;700;900&family=Viga&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>LURIEN — Redirect automatico</title>
+  <style>
+    html, body { margin:0; height:100%; display:grid; place-items:center; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#111; color:#fff; }
+    .box { text-align:center; padding: 20px; }
+    .small { opacity:.8; font-size: 13px; margin-top: 8px; }
+  </style>
 </head>
-
 <body>
+  <div class="box">
+    <div>Rilevamento dispositivo in corso…</div>
+    <div class="small">Se non vieni reindirizzato, apri /desktop/</div>
+  </div>
 
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand brand--logo-only" href="#top" aria-label="Home">
-        <img class="brand-logo brand-logo--xl" src="images/site/logo.jpg" alt="Lurien logo" />
-      </a>
+  <script>
+    function redirectByDevice() {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      const landscape = w > h;
+      let target = '';
 
-      <nav class="nav">
-        <a class="nav-link" href="#about" data-i18n="nav.about">Chi siamo</a>
-        <a class="nav-link" href="#projects" data-i18n="nav.projects">Progetti</a>
-        <a class="nav-link" href="#contatti" data-i18n="nav.contacts">Contatti</a>
-      </nav>
+      if (w >= 1024) {
+        target = 'desktop/index-desktop.html';
+      } else if (w >= 768 && w < 1024) {
+        target = landscape
+          ? 'tablet-landscape/index-tablet-landscape.html'
+          : 'tablet-portrait/index-tablet-portrait.html';
+      } else {
+        target = landscape
+          ? 'phone-landscape/index-phone-landscape.html'
+          : 'phone-portrait/index-phone-portrait.html';
+      }
 
-      <div class="lang">
-        <button class="lang-pill" id="langToggle" type="button" aria-haspopup="menu" aria-expanded="false">
-          <span class="lang-flag" id="langFlag">🇮🇹</span>
-          <span class="lang-code" id="langCode">IT</span>
-          <span class="lang-caret" aria-hidden="true">▾</span>
-        </button>
-
-        <div class="lang-menu" id="langMenu" role="menu" aria-label="Seleziona lingua">
-          <button class="lang-item" role="menuitem" type="button" data-lang="it" data-flag="🇮🇹">🇮🇹 Italiano</button>
-          <button class="lang-item" role="menuitem" type="button" data-lang="pt" data-flag="🇧🇷">🇧🇷 Português</button>
-          <button class="lang-item" role="menuitem" type="button" data-lang="en" data-flag="🇺🇸">🇺🇸 English</button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main id="top" class="hero hero--dark">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container hero-content hero-content--center">
-      <div class="hero-wordmark" aria-label="Lurien">LURIEN</div>
-      <div class="hero-tagline">Dove i tuoi sogni prendono forma</div>
-    </div>
-  </main>
-
-  <section id="about" class="section section--alt">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">Chi siamo</h2>
-        <p class="section-desc">Un team orientato a qualità, design e realizzazione concreta.</p>
-      </div>
-
-      <div class="about-bio">
-        <p>Creiamo spazi moderni e funzionali, con un’estetica curata e un processo chiaro.</p>
-        <p>Attenzione ai dettagli, materiali e scelte coerenti con budget e obiettivi.</p>
-        <p>Pianificazione e comunicazione costante: meno sorprese, più controllo.</p>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-card">
-          <h3 class="about-title">Visione</h3>
-          <p class="about-text">Creiamo spazi moderni e funzionali.</p>
-        </div>
-
-        <div class="about-card">
-          <h3 class="about-title">Qualità</h3>
-          <p class="about-text">Attenzione ai dettagli e materiali di pregio.</p>
-        </div>
-
-        <div class="about-card">
-          <h3 class="about-title">Affidabilità</h3>
-          <p class="about-text">Comunicazione chiara e pianificazione precisa.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ✅ SEÇÃO INTRO (acima de PROJETOS) -->
-  <section id="intro-projetos" class="section section--intro">
-    <div class="container intro-grid">
-      <!-- ESQUERDA: TEXTO -->
-      <div class="intro-left">
-        <h2 class="intro-title">Lurien Incorporadora</h2>
-
-        <p class="intro-lead">
-          A Lurien Incorporadora nasce com o propósito de desenvolver empreendimentos que unem
-          arquitetura contemporânea, inteligência construtiva e valorização imobiliária.
-          Atuando em Pará de Minas – MG, entregamos projetos pensados para atender um público exigente,
-          que busca qualidade, conforto e segurança em cada detalhe.
-        </p>
-
-        <p class="intro-text">
-          Com uma atuação estratégica e orientada por processos modernos e automatizados, a Lurien acompanha
-          todas as etapas do desenvolvimento imobiliário — da análise do terreno à entrega do empreendimento —
-          garantindo eficiência, transparência e alto padrão construtivo.
-        </p>
-
-        <p class="intro-text">
-          Nossos projetos são desenvolvidos com foco em design funcional, inovação e potencial de valorização,
-          sempre alinhados às tendências do mercado e às necessidades reais de morar e investir bem.
-          Trabalhamos com parceiros qualificados, tecnologia aplicada à gestão e um olhar atento ao futuro urbano da cidade.
-        </p>
-
-        <p class="intro-highlight">
-          Acreditamos que incorporar é planejar com responsabilidade, executar com excelência e entregar experiências
-          que geram valor duradouro.
-        </p>
-
-        <div class="intro-tags" aria-label="Destaques">
-          <span class="intro-tag">Inovação em construção residencial.</span>
-          <span class="intro-tag">Casas modernas, projetos únicos.</span>
-          <span class="intro-tag">Transformando ideias em lares reais.</span>
-        </div>
-      </div>
-
-      <!-- DIREITA: CARDS (como referência das imagens) -->
-      <div class="intro-right">
-        <div class="intro-cards">
-          <article class="intro-card">
-            <div class="intro-icon" aria-hidden="true">
-              <!-- ícone simples -->
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M4 20V10l8-6 8 6v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3 class="intro-card-title">Arquitetura contemporânea</h3>
-            <p class="intro-card-text">Projetos com design funcional, estética limpa e soluções inteligentes para morar melhor.</p>
-          </article>
-
-          <article class="intro-card">
-            <div class="intro-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 2v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M12 18v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M4.93 4.93l2.83 2.83" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M16.24 16.24l2.83 2.83" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M2 12h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M18 12h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M4.93 19.07l2.83-2.83" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M12 8a4 4 0 1 0 0 8a4 4 0 0 0 0-8Z" stroke="currentColor" stroke-width="1.8"/>
-              </svg>
-            </div>
-            <h3 class="intro-card-title">Processos modernos</h3>
-            <p class="intro-card-text">Etapas automatizadas e gestão clara para mais eficiência, prazos melhores e transparência.</p>
-          </article>
-
-          <article class="intro-card">
-            <div class="intro-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2a4 4 0 0 1 7 2c0 6.5-7 11-7 11Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3 class="intro-card-title">Conforto e segurança</h3>
-            <p class="intro-card-text">Detalhes pensados para um público exigente: qualidade de obra, materiais e execução.</p>
-          </article>
-
-          <article class="intro-card">
-            <div class="intro-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M7 8l5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M7 16h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="intro-card-title">Valorização imobiliária</h3>
-            <p class="intro-card-text">Projetos alinhados ao mercado e ao futuro urbano, com alto potencial de valorização.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ✅ /SEÇÃO INTRO -->
-
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">Progetti</h2>
-        <p class="section-desc">Alcuni esempi di lavori e concept.</p>
-      </div>
-
-      <div class="projects-grid">
-        <a class="project-card" href="#">
-          <div class="project-thumb" style="background-image:url('images/projects/villa-antonio/cover.jpg');"></div>
-          <div class="project-body">
-            <div class="project-name">Villa Antonio</div>
-            <div class="project-meta">Residenziale</div>
-          </div>
-        </a>
-
-        <a class="project-card" href="#">
-          <div class="project-thumb" style="background-image:url('images/projects/villa-alessia/cover.jpg');"></div>
-          <div class="project-body">
-            <div class="project-name">Villa Alessia</div>
-            <div class="project-meta">Residenziale</div>
-          </div>
-        </a>
-
-        <div class="project-card project-card--ghost">
-          <div class="project-thumb"></div>
-          <div class="project-body">
-            <div class="project-name">Prossimo progetto</div>
-            <div class="project-meta">Coming soon</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ FOOTER con contatti + mappa + form -->
-  <section id="contatti" class="footer">
-    <div class="container">
-      <div class="footer-top-rule"></div>
-
-      <!-- ✅ FORM (SOPRA, A LARGHEZZA PIENA) -->
-      <div class="footer-form-wrap">
-        <h4 class="footer-title">Scrivici un messaggio</h4>
-
-        <form id="contactForm" class="contact-form contact-form--wide" action="https://formspree.io/f/xdaakkdn" method="POST">
-          <div class="contact-form-grid">
-            <!-- SINISTRA: nome/email/telefono -->
-            <div class="contact-form-left">
-              <label>Nome</label>
-              <input type="text" name="name" required placeholder="Il tuo nome">
-
-              <label>Email</label>
-              <input type="email" name="email" required placeholder="Il tuo indirizzo email">
-
-              <label>Telefono (opzionale)</label>
-              <input type="tel" name="phone" placeholder="Numero di telefono (opzionale)">
-            </div>
-
-            <!-- DESTRA: messaggio (max 1000) -->
-            <div class="contact-form-right">
-              <label>Messaggio (max 1000 caratteri)</label>
-              <textarea name="message" rows="8" required maxlength="1000" placeholder="Scrivi qui il tuo messaggio..."></textarea>
-            </div>
-          </div>
-
-          <button type="submit" class="btn-send">Invia</button>
-
-          <div class="contact-form-status" id="contactFormStatus" aria-live="polite"></div>
-        </form>
-      </div>
-
-      <!-- ✅ SOTTO: INDIRIZZO e CONTATTI allo stesso livello -->
-      <div class="footer-grid footer-grid--two footer-grid--addr-contacts">
-
-        <!-- SINISTRA: INDIRIZZO + MAPPA -->
-        <div class="footer-col">
-          <h4 class="footer-title footer-title--sub">Indirizzo</h4>
-
-          <div class="footer-item">
-            <div class="footer-label">Indirizzo:</div>
-            <a class="footer-link footer-link--maps" href="https://www.google.com/maps/dir/?api=1&destination=R.%20Ant%C3%B4nio%20Carlos%2C%202071%20-%20S%C3%A3o%20Cristovao%2C%20Par%C3%A1%20de%20Minas%20-%20MG" target="_blank" rel="noopener">
-              R. Antônio Carlos, 2071 - São Cristovao, Pará de Minas - MG
-            </a>
-          </div>
-
-          <div class="footer-map">
-            <iframe
-              title="Mappa - Lurien"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=R.%20Ant%C3%B4nio%20Carlos%2C%202071%20-%20S%C3%A3o%20Cristovao%2C%20Par%C3%A1%20de%20Minas%20-%20MG&output=embed"
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-
-        <!-- DESTRA: CONTATTI -->
-        <div class="footer-col">
-          <h4 class="footer-title footer-title--sub">Contatti</h4>
-
-          <div class="footer-item">
-            <div class="footer-label">Telefono:</div>
-            <a class="footer-link" href="tel:+5537999760175">+55 37 99976-0175</a>
-          </div>
-
-          <div class="footer-item">
-            <div class="footer-label">Telefono fisso:</div>
-            <a class="footer-link" href="tel:+553732371396">+55 37 3237-1396</a>
-          </div>
-
-          <div class="footer-item">
-            <div class="footer-label">Email:</div>
-            <a class="footer-link" href="mailto:supervisaolurienincorporadora@gmail.com">supervisaolurienincorporadora@gmail.com</a>
-          </div>
-
-          <!-- ✅ WhatsApp (deve restare l'ultima cosa) -->
-          <a class="btn-whatsapp btn-whatsapp--footer"
-             href="https://wa.me/5537999760175"
-             target="_blank"
-             rel="noopener">
-            Contatto WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<script src="assets/js/i18n.js"></script>
-  <script src="assets/js/contact-form.js"></script>
-  <script src="assets/js/chat.js"></script>
+      window.location.replace(target);
+    }
+    redirectByDevice();
+    window.addEventListener('orientationchange', () => setTimeout(redirectByDevice, 200));
+  </script>
 </body>
 </html>

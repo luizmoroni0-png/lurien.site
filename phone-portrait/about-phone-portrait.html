@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>About — Lurien Incorporadora</title>
+  <meta name="description" content="About Lurien Incorporadora – development, construction and concepts." />
+
+  <!-- ✅ FAVICON -->
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/icons/favicon-192.png">
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/mode-phone-portrait.css"/>
+
+
+  <!-- ✅ Start already inside About -->
+  <script>
+    if (!location.hash) location.hash = "#/chi-siamo";
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#app" data-i18n="skip_to_content">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="../index-phone-portrait.html#/" aria-label="Lurien - Home">
+        <img class="brand-logo" src="../images/site/logo.jpg" alt="Lurien" />
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle-lines" aria-hidden="true"></span>
+        <span class="sr-only">Apri/Chiudi menu</span>
+      </button>
+
+
+      <nav class="main-nav" aria-label="Main menu" id="siteNav">
+        <a id="navHomeLink" href="../index-phone-portrait.html#/" data-i18n="nav_home">Home</a>
+        <a href="#/chi-siamo" data-i18n="nav_about">About</a>
+        <a href="#/progetti" data-i18n="nav_projects">Projects</a>
+        <a href="#/contenuti" data-i18n="nav_content">Content</a>
+        <a href="#/contatti" data-i18n="nav_contacts">Contacts</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- ✅ Language dropdown with flags -->
+        <div class="lang-dropdown" id="langDropdown">
+          <button id="langBtn"
+                  class="btn btn-ghost lang-btn"
+                  type="button"
+                  aria-label="Language"
+                  aria-haspopup="menu"
+                  aria-expanded="false">
+            <span class="lang-flag" aria-hidden="true">🇬🇧</span>
+            <span class="lang-code">EN</span>
+            <span class="lang-caret" aria-hidden="true">▾</span>
+          </button>
+
+          <div id="langMenu" class="lang-menu" role="menu" aria-label="Language selector">
+            <button class="lang-item" type="button" role="menuitemradio" aria-checked="false" data-lang="en">
+              <span class="lang-flag" aria-hidden="true">🇬🇧</span><span class="lang-label">English</span>
+            </button>
+            <button class="lang-item" type="button" role="menuitemradio" aria-checked="false" data-lang="it">
+              <span class="lang-flag" aria-hidden="true">🇮🇹</span><span class="lang-label">Italiano</span>
+            </button>
+            <button class="lang-item" type="button" role="menuitemradio" aria-checked="false" data-lang="pt">
+              <span class="lang-flag" aria-hidden="true">🇧🇷</span><span class="lang-label">Português</span>
+            </button>
+            <button class="lang-item" type="button" role="menuitemradio" aria-checked="false" data-lang="es">
+              <span class="lang-flag" aria-hidden="true">🇪🇸</span><span class="lang-label">Español</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="app" role="main">
+    <noscript data-i18n="noscript">To use this site you need to enable JavaScript.</noscript>
+  </main>
+
+  <footer class="site-footer" id="siteFooter">
+    <div class="container">
+      <small>© <span id="year"></span> Lurien Incorporadora LTDA. <span data-i18n="footer_rights">All rights reserved.</span></small>
+    </div>
+  </footer>
+
+  <!-- JS (order: i18n -> chat -> app) -->
+  <script src="../assets/js/i18n.js" defer></script>
+  <script src="../assets/js/chat.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+
+  <script src="../assets/js/mode-nav.js"></script>
+</body>
+</html>
