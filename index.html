@@ -1,44 +1,186 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>LURIEN — Redirect automatico</title>
+  <meta charset="UTF-8">
+  <title>Lurien</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/fonts.css">
+
+  <!-- AGGIUNTA MINIMA: uniforma le cover dei progetti + 3 card affiancate -->
   <style>
-    html, body { margin:0; height:100%; display:grid; place-items:center; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#111; color:#fff; }
-    .box { text-align:center; padding: 20px; }
-    .small { opacity:.8; font-size: 13px; margin-top: 8px; }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <div class="box">
-    <div>Rilevamento dispositivo in corso…</div>
-    <div class="small">Se non vieni reindirizzato, apri /desktop/</div>
-  </div>
 
-  <script>
-    function redirectByDevice() {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-      const landscape = w > h;
-      let target = '';
+  <header class="header-absolute">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/media/images/ui/logo-lurien-home.jpg" alt="Lurien">
+      </a>
+    </div>
 
-      if (w >= 1024) {
-        target = 'desktop/index-desktop.html';
-      } else if (w >= 768 && w < 1024) {
-        target = landscape
-          ? 'tablet-landscape/index-tablet-landscape.html'
-          : 'tablet-portrait/index-tablet-portrait.html';
-      } else {
-        target = landscape
-          ? 'phone-landscape/index-phone-landscape.html'
-          : 'phone-portrait/index-phone-portrait.html';
-      }
+    <nav class="nav-primary">
+      <ul>
+        <li><a href="#identity">Chi siamo</a></li>
+        <li><a href="pages/projects.html">Progetti</a></li>
+        <li><a href="pages/contatto.html">Contatti</a></li>
+        <li>
+          <select class="lang-select">
+            <option value="pt">🇧🇷 PT</option>
+            <option value="it">🇮🇹 IT</option>
+            <option value="en">🇺🇸 EN</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-      window.location.replace(target);
-    }
-    redirectByDevice();
-    window.addEventListener('orientationchange', () => setTimeout(redirectByDevice, 200));
-  </script>
+  <!-- HERO -->
+  <section class="hero-strong">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>LURIEN</h1>
+      <p>Dove i tuoi sogni prendono forma</p>
+    </div>
+  </section>
+
+  <!-- IDENTITÀ (VERSIONE COMPLETA) -->
+  <section id="identity">
+    <div class="identity-inner identity-full">
+
+      <div class="identity-left">
+        <h2>Lurien Incorporadora</h2>
+
+        <p>
+          A Lurien Incorporadora nasce com o propósito de desenvolver empreendimentos que unem arquitetura contemporânea, inteligência construtiva e valorização imobiliária. Atuando em Pará de Minas – MG, entregamos projetos pensados para atender um público exigente, che busca qualità, comfort e sicurezza in ogni dettaglio.
+        </p>
+
+        <p>
+          Com uma atuação estratégica e orientada por processos modernos e automatizados, a Lurien acompanha todas as etapas do desenvolvimento imobiliário — da análise do terreno à entrega do empreendimento — garantindo eficiência, transparência e alto padrão construtivo.
+        </p>
+
+        <p>
+          Nossos projetos são desenvolvidos com foco em design funcional, inovação e potencial de valorização, sempre alinhados às tendências do mercado e às necessidades reais de morar e investir bem.
+        </p>
+
+        <blockquote>
+          Acreditamos que incorporar é planejar com responsabilidade, executar com excelência e entregar experiências que geram valor duradouro.
+        </blockquote>
+
+        <div class="identity-tags">
+          <span>Inovação em construção residencial.</span>
+          <span>Casas modernas, projetos únicos.</span>
+          <span>Transformando ideias em lares reais.</span>
+        </div>
+      </div>
+
+      <div class="identity-right">
+        <div class="identity-card">
+          <h3>Arquitetura contemporânea</h3>
+          <p>Projetos com design funcional, estética limpa e soluzioni intelligenti per morare meglio.</p>
+        </div>
+
+        <div class="identity-card">
+          <h3>Processi moderni</h3>
+          <p>Etapas automatizadas e gestão clara per maggiore efficienza.</p>
+        </div>
+
+        <div class="identity-card">
+          <h3>Conforto e sicurezza</h3>
+          <p>Detalhes pensados para um pubblico esigente.</p>
+        </div>
+
+        <div class="identity-card">
+          <h3>Valorização imobiliária</h3>
+          <p>Projetos alinhados al futuro urbano.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROGETTI (HOME) -->
+  <section class="projects-dark">
+    <h2>Progetti</h2>
+
+    <div class="projects-grid">
+
+      <!-- IN VENDITA -->
+      <a href="pages/vendita/villa-antonio.html" class="project-card">
+        <img src="assets/media/images/projects/vendita/villa-antonio/cover.jpg" alt="Villa Antonio">
+        <h3>Villa Antonio</h3>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- COLLABORATORI -->
+  <section id="collaborations">
+    <div class="collaborators-grid">
+      <!-- collaboratori -->
+    </div>
+  </section>
+
+  <!-- CONTATTI + MAPPA -->
+  <footer class="footer-home">
+    <div class="footer-home-inner">
+
+      <div class="footer-block">
+        <h3>INDIRIZZO</h3>
+        <p>
+          R. Antônio Carlos, 2071 – São Cristóvão<br>
+          Pará de Minas – MG
+        </p>
+
+        <h3 style="margin-top:2rem;">CONTATTI</h3>
+        <p>
+          Telefono: +55 37 99976-0175<br>
+          Telefono fisso: +55 37 3237-1396<br>
+          Email:
+          <a href="mailto:supervisaolurienincorporadora@gmail.com">
+            supervisaolurienincorporadora@gmail.com
+          </a>
+        </p>
+      </div>
+
+      <div class="footer-map">
+        <iframe
+          src="https://www.google.com/maps?q=R.%20Antônio%20Carlos,%202071%20-%20São%20Cristóvão,%20Pará%20de%20Minas%20-%20MG&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="assets/js/scroll-reveal.js"></script>
+
 </body>
 </html>
