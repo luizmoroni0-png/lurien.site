@@ -1,0 +1,9 @@
+/* =========================================================
+   EFFECTS ENTRYPOINT (SAFE)
+   Qui metti SOLO cose opzionali (hover, transizioni, focus).
+   Per spegnere tutto: commenta una riga e fine.
+========================================================= */
+
+@import "./hover.css";
+/* @import "./transitions.css"; */
+/* @import "./focus.css"; */

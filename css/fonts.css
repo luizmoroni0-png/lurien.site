@@ -1,0 +1,34 @@
+/* ======================
+   GOOGLE FONTS (come sito online)
+====================== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Viga&family=Dancing+Script:wght@400;500&display=swap');
+
+/* ======================
+   FONT LOCALE (cartella fonts già pronta)
+====================== */
+@font-face {
+  font-family: 'Anurati';
+  src: url('../fonts/anurati-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ======================
+   ASSEGNAZIONE FONT
+====================== */
+body{
+  font-family: 'Outfit', sans-serif;
+}
+
+/* HERO (UGUALE AL SITO) */
+.hero-content h1{
+  font-family: 'Viga', sans-serif;
+  font-weight: 400;
+}
+
+.hero-content p{
+  font-family: 'Dancing Script', cursive;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.2;
+}

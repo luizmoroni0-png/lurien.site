@@ -1,0 +1,385 @@
+/* ======================
+   RESET
+====================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ======================
+   BASE (LUXURY BLACK + GOLD DETAILS)
+====================== */
+body {
+  font-family: system-ui, sans-serif;
+  color: #fff;
+
+  /* NERO LUSSO + DETTAGLI ORO (STATICO, LEGGERO) */
+  background:
+    /* vignette (profondità) */
+    radial-gradient(circle at 50% 20%, rgba(0,0,0,0.10), rgba(0,0,0,0.92) 70%),
+    radial-gradient(circle at 50% 120%, rgba(212,177,95,0.10), transparent 60%),
+
+    /* angoli oro (luxury corners) */
+    radial-gradient(circle at 0% 0%, rgba(212,177,95,0.18), transparent 35%),
+    radial-gradient(circle at 100% 0%, rgba(212,177,95,0.14), transparent 35%),
+    radial-gradient(circle at 0% 100%, rgba(212,177,95,0.12), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(212,177,95,0.16), transparent 40%),
+
+    /* cornice interna molto sottile (effetto “frame”) */
+    linear-gradient(to right, rgba(212,177,95,0.10), rgba(212,177,95,0.00) 25%, rgba(212,177,95,0.00) 75%, rgba(212,177,95,0.10)),
+    linear-gradient(to bottom, rgba(212,177,95,0.08), rgba(212,177,95,0.00) 22%, rgba(212,177,95,0.00) 78%, rgba(212,177,95,0.08)),
+
+    /* pattern geometrico leggero (diagonali finissime) */
+    repeating-linear-gradient(
+      135deg,
+      rgba(212,177,95,0.00) 0px,
+      rgba(212,177,95,0.00) 18px,
+      rgba(212,177,95,0.05) 19px,
+      rgba(212,177,95,0.00) 22px
+    ),
+
+    /* base nero */
+    linear-gradient(180deg, #070707 0%, #000 100%);
+
+  background-attachment: scroll;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ======================
+   HEADER
+====================== */
+.header-absolute {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  background: transparent;
+}
+
+/* LOGO IN ALTO A DESTRA */
+.logo {
+  position: absolute;
+  top: 0.2rem;
+  right: 2rem;
+}
+
+.logo img {
+  height: 126px;
+}
+
+/* NAV */
+.nav-primary {
+  position: absolute;
+  left: 50%;
+  top: 1.5rem;
+  transform: translateX(-50%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+}
+
+.nav-primary ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-primary a {
+  color: #fff;
+}
+
+/* LINGUE */
+.lang-select {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+  appearance: none;
+}
+
+.lang-select option {
+  background: #0b0b0b;
+  color: #fff;
+}
+
+/* ======================
+   HERO (PIÙ LUMINOSA)
+====================== */
+.hero-strong {
+  height: 100vh;
+  background: url("../media/images/hero.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* overlay più “luxury” (nero + oro soft) */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 35%, rgba(212,177,95,0.14), transparent 55%),
+    linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(0,0,0,0.58));
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  letter-spacing: 0.25em;
+  text-shadow: 0 10px 40px rgba(0,0,0,0.60);
+}
+
+.hero-content p {
+  margin-top: 1rem;
+  font-style: italic;
+  opacity: 0.92;
+}
+
+/* ======================
+   IDENTITÀ
+====================== */
+#identity {
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 60%),
+    rgba(0,0,0,0);
+  padding: 7rem 2rem;
+}
+
+.identity-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  gap: 4rem;
+}
+
+.identity-left h2 {
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+}
+
+.identity-left p {
+  opacity: .85;
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+
+.identity-left blockquote {
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid #d4b15f;
+  font-style: italic;
+  opacity: .9;
+}
+
+.identity-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.identity-tags span {
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ======================
+   CARD DESTRA
+====================== */
+.identity-right {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.identity-card {
+  background: rgba(20,20,20,.80);
+  border-radius: 18px;
+  padding: 2.2rem;
+  border: 1px solid rgba(255,255,255,.08);
+  position: relative;
+
+  opacity: 0;
+  transform: translateX(120px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.identity-card.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.identity-card::before {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  background: rgba(212,177,95,.15);
+  border: 1px solid rgba(212,177,95,.5);
+  color: #d4b15f;
+}
+
+.identity-card:nth-child(1)::before { content: "🏛️"; }
+.identity-card:nth-child(2)::before { content: "⚙️"; }
+.identity-card:nth-child(3)::before { content: "🛡️"; }
+.identity-card:nth-child(4)::before { content: "📈"; }
+
+.identity-card h3 {
+  margin-left: 64px;
+  color: #d4b15f;
+  margin-bottom: .6rem;
+}
+
+.identity-card p {
+  margin-left: 64px;
+  opacity: .85;
+  line-height: 1.6;
+}
+
+/* ======================
+   PROGETTI
+====================== */
+.projects-dark {
+  background: rgba(0,0,0,0);
+  padding: 6rem 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.project-card {
+  background: rgba(20,20,20,0.78);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.project-card img {
+  width: 100%;
+  display: block;
+}
+
+.project-card h3 {
+  padding: 1.2rem;
+  text-align: center;
+  color: #d4b15f;
+}
+
+/* ======================
+   CTA
+====================== */
+#cta {
+  background: rgba(0,0,0,0);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.cta-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 3rem;
+  border-radius: 999px;
+  background: #d4b15f;
+  color: #000;
+  font-weight: 600;
+}
+
+/* ======================
+   COLLABORATORI
+====================== */
+#collaborations {
+  background: rgba(0,0,0,0);
+  padding: 5rem 2rem;
+}
+
+.collaborators-grid {
+  display: grid;
+  gap: 2.5rem;
+  justify-items: center;
+}
+
+/* ======================
+   FOOTER
+====================== */
+.footer-home {
+  background: rgba(0,0,0,0);
+  padding: 6rem 2rem 4rem;
+}
+
+.footer-home-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  gap: 4rem;
+}
+
+.footer-block h3 {
+  color: #d4b15f;
+  margin-bottom: 1rem;
+}
+
+.footer-block p {
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+@media (min-width: 1024px) {
+  .identity-inner {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+/* ===============================
+   ESCLUSIONE HOVER ORO SUL LOGO
+   (NON tocca nient’altro)
+=============================== */
+
+.logo a:hover,
+.logo a:focus,
+.logo a:focus-visible {
+  box-shadow: none !important;
+  outline: none !important;
+  filter: none !important;
+  transform: none !important;
+}

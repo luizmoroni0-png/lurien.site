@@ -1,0 +1,179 @@
+/* ======================
+   PROJECT GALLERY (leggero e fluido)
+====================== */
+
+.project-hero {
+  height: 72vh;
+  min-height: 520px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0 2rem;
+
+  /* usa la cover del progetto */
+  background: url("../media/images/projects/vendita/villa-antonio/cover.jpg") center/cover no-repeat;
+}
+
+.project-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 35%, rgba(212,177,95,0.12), transparent 55%),
+    linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.70));
+}
+
+.project-hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+}
+
+.project-hero-inner h1 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  letter-spacing: 0.08em;
+  text-shadow: 0 12px 40px rgba(0,0,0,0.65);
+}
+
+.project-hero-inner p {
+  margin-top: 1rem;
+  opacity: 0.92;
+}
+
+.project-main {
+  padding: 5rem 2rem 6rem;
+}
+
+.project-gallery-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-gallery-title {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+  color: #d4b15f;
+}
+
+.project-gallery-subtitle {
+  opacity: 0.85;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Grid gallery */
+.project-gallery-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .project-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .project-gallery-grid { grid-template-columns: 1fr; }
+}
+
+.gallery-item {
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(20,20,20,0.75);
+  border: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .gallery-item img { height: 240px; }
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  display: none;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: min(1100px, 92vw);
+  max-height: 86vh;
+  border-radius: 14px;
+  box-shadow: 0 30px 100px rgba(0,0,0,0.6);
+  border: 1px solid rgba(212,177,95,0.20);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(20,20,20,0.55);
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 60px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(20,20,20,0.45);
+  color: #fff;
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.lightbox-prev { left: 18px; }
+.lightbox-next { right: 18px; }
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(20,20,20,0.55);
+  border: 1px solid rgba(255,255,255,0.10);
+  font-size: 14px;
+  opacity: 0.92;
+}
+/* ===============================
+   ESCLUSIONE HOVER ORO SUL LOGO
+   (NON tocca nient’altro)
+=============================== */
+
+.logo a:hover,
+.logo a:focus,
+.logo a:focus-visible {
+  box-shadow: none !important;
+  outline: none !important;
+  filter: none !important;
+  transform: none !important;
+}
