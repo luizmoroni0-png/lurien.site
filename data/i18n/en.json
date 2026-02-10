@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "vendita": "For Sale",
+    "venduti": "Sold",
+    "concepts": "Concepts",
+    "collaborators": "Collaborators",
+    "inCostruzione": "Under Construction"
+  },
+  "hero": {
+    "title": "Architecture and vision",
+    "subtitle": "Projects, spaces, collaborations and research."
+  },
+  "sections": {
+    "projects": "Projects",
+    "collaborations": "Collaborations"
+  },
+  "footer": {
+    "address": "ADDRESS",
+    "contacts": "CONTACTS"
+  },
+  "projectsPage": {
+    "title": "Projects",
+    "subtitle": "Choose a category and open the project to see photos and presentation.",
+    "pills": {
+      "forSale": "For Sale",
+      "sold": "Sold",
+      "concept": "Concepts",
+      "underConstruction": "Under Construction",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "sections": {
+      "forSaleTitle": "For Sale",
+      "forSaleDesc": "Available projects.",
+      "soldTitle": "Sold",
+      "soldDesc": "Projects already sold.",
+      "conceptTitle": "Concepts",
+      "conceptDesc": "Ideas and projects in progress.",
+      "underConstructionTitle": "Under Construction",
+      "underConstructionDesc": "Projects in development."
+    }
+  },
+  "comingSoon": {
+    "title": "COMING SOON",
+    "sold": "We are uploading the projects.",
+    "concept": "We are uploading the concepts.",
+    "underConstruction": "We are uploading the under-construction projects."
+  },
+  "contactPage": {
+    "title": "Contact",
+    "addressLabel": "ADDRESS",
+    "contactsLabel": "CONTACTS"
+  },
+  "project": {
+    "villaAntonio": {
+      "title": "Villa Antonio",
+      "subtitle": "Scroll through the images to see the project presentation.",
+      "galleryTitle": "Gallery",
+      "galleryHint": "Click a photo to view it fullscreen."
+    }
+  }
+}

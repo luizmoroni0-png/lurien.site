@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Chi siamo",
+    "projects": "Progetti",
+    "contact": "Contatti",
+    "vendita": "In vendita",
+    "venduti": "Venduti",
+    "concepts": "Concept",
+    "collaborators": "Collaboratori",
+    "inCostruzione": "In costruzione"
+  },
+  "hero": {
+    "title": "Architettura e visione",
+    "subtitle": "Progetti, spazi, collaborazioni e ricerca."
+  },
+  "sections": {
+    "projects": "Progetti",
+    "collaborations": "Collaborazioni"
+  },
+  "footer": {
+    "address": "INDIRIZZO",
+    "contacts": "CONTATTI"
+  },
+  "projectsPage": {
+    "title": "Progetti",
+    "subtitle": "Scegli una categoria e apri il progetto per vedere foto e presentazione.",
+    "pills": {
+      "forSale": "In vendita",
+      "sold": "Venduti",
+      "concept": "Concept",
+      "underConstruction": "In costruzione",
+      "about": "Chi siamo",
+      "contact": "Contatti"
+    },
+    "sections": {
+      "forSaleTitle": "In vendita",
+      "forSaleDesc": "Progetti disponibili.",
+      "soldTitle": "Venduti",
+      "soldDesc": "Progetti già venduti.",
+      "conceptTitle": "Concept",
+      "conceptDesc": "Idee e progetti in studio.",
+      "underConstructionTitle": "In costruzione",
+      "underConstructionDesc": "Progetti in fase di realizzazione."
+    }
+  },
+  "comingSoon": {
+    "title": "COMING SOON",
+    "sold": "Stiamo caricando i progetti.",
+    "concept": "Stiamo caricando i concept.",
+    "underConstruction": "Stiamo caricando i progetti in costruzione."
+  },
+  "contactPage": {
+    "title": "Contatti",
+    "addressLabel": "INDIRIZZO",
+    "contactsLabel": "CONTATTI"
+  },
+  "project": {
+    "villaAntonio": {
+      "title": "Villa Antonio",
+      "subtitle": "Scorri le immagini per vedere la presentazione del progetto.",
+      "galleryTitle": "Galleria",
+      "galleryHint": "Clicca su una foto per vederla a schermo intero."
+    }
+  }
+}
